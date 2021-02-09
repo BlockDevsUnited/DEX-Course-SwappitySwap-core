@@ -67,7 +67,7 @@ const ResponsiveButtonSecondary = styled(ButtonSecondary)`
 const EmptyProposals = styled.div`
   border: 1px solid ${({ theme }) => theme.text4};
   padding: 16px 12px;
-  border-radius: 12px;
+  border-radius: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;

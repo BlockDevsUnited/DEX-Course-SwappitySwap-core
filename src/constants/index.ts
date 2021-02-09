@@ -3,7 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 
-export const ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+export const ROUTER_ADDRESS = '0x7C515583Ae2259F8Eff0087e08643362Ff367eb0'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -38,6 +38,15 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
+}
+
+const UCASH_Address = "0x92e52a1a235d9a103d970901066ce910aacefd37"
+export const UCASH: { [chainId in ChainId]: Token } = {
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
+  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
+  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
+  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
+  [ChainId.KOVAN]: new Token(ChainId.KOVAN, UCASH_Address, 8, 'UCASH', 'Universal Cash')
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {

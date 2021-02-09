@@ -75,7 +75,7 @@ const HeaderControls = styled.div`
     width: 100%;
     z-index: 99;
     height: 72px;
-    border-radius: 12px 12px 0 0;
+    border-radius: 0;
     background-color: ${({ theme }) => theme.bg1};
   `};
 `
@@ -83,11 +83,7 @@ const HeaderControls = styled.div`
 const HeaderElement = styled.div`
   display: flex;
   align-items: center;
-
-  /* addresses safari's lack of support for "gap" */
-  & > *:not(:first-child) {
-    margin-left: 8px;
-  }
+  gap: 8px;
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
    flex-direction: row-reverse;
@@ -119,7 +115,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   flex-direction: row;
   align-items: center;
   background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg3)};
-  border-radius: 12px;
+  border-radius: 0px;
   white-space: nowrap;
   width: 100%;
   cursor: pointer;
@@ -135,7 +131,7 @@ const UNIAmount = styled(AccountElement)`
   height: 36px;
   font-weight: 500;
   background-color: ${({ theme }) => theme.bg3};
-  background: radial-gradient(174.47% 188.91% at 1.84% 0%, #ff007a 0%, #2172e5 100%), #edeef2;
+  background: radial-gradient(174.47% 188.91% at 1.84% 0%, #cc9933 0%, #333 100%), #edeef2;
 `
 
 const UNIWrapper = styled.span`
@@ -159,7 +155,7 @@ const HideSmall = styled.span`
 `
 
 const NetworkCard = styled(YellowCard)`
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 8px 12px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     margin: 0;
@@ -205,7 +201,7 @@ const StyledNavLink = styled(NavLink).attrs({
 })`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
-  border-radius: 3rem;
+  border-radius: 0rem;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -216,7 +212,7 @@ const StyledNavLink = styled(NavLink).attrs({
   font-weight: 500;
 
   &.${activeClassName} {
-    border-radius: 12px;
+    border-radius: 0px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
   }
@@ -232,7 +228,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 })<{ isActive?: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
-  border-radius: 3rem;
+  border-radius: 0rem;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -243,7 +239,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   font-weight: 500;
 
   &.${activeClassName} {
-    border-radius: 12px;
+    border-radius: 0px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
   }
@@ -270,7 +266,7 @@ export const StyledMenuButton = styled.button`
   background-color: ${({ theme }) => theme.bg3};
   margin-left: 8px;
   padding: 0.15rem 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0rem;
 
   :hover,
   :focus {
@@ -330,7 +326,7 @@ export default function Header() {
         </Title>
         <HeaderLinks>
           <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
-            {t('swap')}
+            {t('Exchange')}
           </StyledNavLink>
           <StyledNavLink
             id={`pool-nav-link`}
@@ -345,14 +341,14 @@ export default function Header() {
           >
             {t('pool')}
           </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={'/uni'}>
+          {/*<StyledNavLink id={`stake-nav-link`} to={'/uni'}>
             UNI
           </StyledNavLink>
           <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
             Vote
-          </StyledNavLink>
-          <StyledExternalLink id={`stake-nav-link`} href={'https://uniswap.info'}>
-            Charts <span style={{ fontSize: '11px' }}>↗</span>
+          </StyledNavLink>*/}
+          <StyledExternalLink id={`stake-nav-link`} href={'https://info.u.exchange'}>
+            Info <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink>
         </HeaderLinks>
       </HeaderRow>
@@ -367,7 +363,7 @@ export default function Header() {
             <UNIWrapper onClick={toggleClaimModal}>
               <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
                 <TYPE.white padding="0 2px">
-                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming UNI</Dots> : 'Claim UNI'}
+                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming UNI</Dots> : 'Claim UCASH'}
                 </TYPE.white>
               </UNIAmount>
               <CardNoise />
@@ -394,7 +390,7 @@ export default function Header() {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                UNI
+                UCASH
               </UNIAmount>
               <CardNoise />
             </UNIWrapper>

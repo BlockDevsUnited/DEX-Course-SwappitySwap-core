@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { TYPE } from '../../theme'
 
 const Wrapper = styled.button<{ isActive?: boolean; activeElement?: boolean }>`
-  border-radius: 20px;
+  border-radius: px;
   border: none;
   background: ${({ theme }) => theme.bg1};
   display: flex;
@@ -15,7 +15,7 @@ const Wrapper = styled.button<{ isActive?: boolean; activeElement?: boolean }>`
 `
 
 const ToggleElement = styled.span<{ isActive?: boolean; bgColor?: string }>`
-  border-radius: 50%;
+  border-radius: 0%;
   height: 24px;
   width: 24px;
   background-color: ${({ isActive, bgColor, theme }) => (isActive ? bgColor : theme.bg4)};

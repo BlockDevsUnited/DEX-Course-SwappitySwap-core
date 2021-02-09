@@ -7,7 +7,7 @@ const InfoCard = styled.button<{ active?: boolean }>`
   padding: 1rem;
   outline: none;
   border: 1px solid;
-  border-radius: 12px;
+  border-radius: 0px;
   width: 100% !important;
   &:focus {
     box-shadow: 0 0 0 1px ${({ theme }) => theme.primary1};
@@ -49,7 +49,7 @@ const GreenCircle = styled.div`
     width: 8px;
     margin-right: 8px;
     background-color: ${({ theme }) => theme.green1};
-    border-radius: 50%;
+    border-radius: 0%;
   }
 `
 

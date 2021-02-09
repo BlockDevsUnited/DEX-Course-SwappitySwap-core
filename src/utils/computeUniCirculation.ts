@@ -106,7 +106,14 @@ export function computeUniCirculation(
   wholeAmount = withVesting(wholeAmount, blockTimestamp, TEAM_YEAR_2_AMOUNT, TREASURY_BEGIN_YEAR_2, TREASURY_END_YEAR_2)
   wholeAmount = withVesting(wholeAmount, blockTimestamp, TEAM_YEAR_3_AMOUNT, TREASURY_BEGIN_YEAR_3, TREASURY_END_YEAR_3)
   wholeAmount = withVesting(wholeAmount, blockTimestamp, TEAM_YEAR_4_AMOUNT, TREASURY_BEGIN_YEAR_4, TREASURY_END_YEAR_4)
+  wholeAmount = JSBI.BigInt(10_351_944_440)
+
 
   const total = new TokenAmount(uni, JSBI.multiply(wholeAmount, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(18))))
-  return unclaimedUni ? total.subtract(unclaimedUni) : total
+  return total
+  // var BigIntTotal = JSBI.BigInt(wholeAmount)
+  //
+  //
+  // const formattedTotal = new TokenAmount(uni,JSBI.multiply(BigIntTotal, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(8))))
+  // return(formattedTotal)
 }

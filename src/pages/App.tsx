@@ -89,7 +89,7 @@ export default function App() {
           <TopLevelModals />
           <Web3ReactManager>
             <Switch>
-              <Route exact strict path="/swap" component={Swap} />
+              <Route exact strict path="/" component={Swap} />
               <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
               <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
               <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
