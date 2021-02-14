@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Token, Currency } from '@uniswap/sdk'
+import { Token, Currency } from '@antron3000/sdk'
 import styled from 'styled-components'
 import { TYPE, CloseIcon } from 'theme'
 import Card from 'components/Card'

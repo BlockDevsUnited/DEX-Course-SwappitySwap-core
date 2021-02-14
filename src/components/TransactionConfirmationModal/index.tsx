@@ -1,4 +1,4 @@
-import { ChainId, Currency } from '@uniswap/sdk'
+import { ChainId, Currency } from '@antron3000/sdk'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import Modal from '../Modal'
