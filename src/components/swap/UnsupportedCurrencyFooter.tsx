@@ -9,7 +9,7 @@ import { AutoColumn } from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'
 import { useActiveWeb3React } from 'hooks'
 import { getEtherscanLink } from 'utils'
-import { Currency, Token } from '@antron3000/sdk'
+import { Currency, Token } from '@antron3000/u-exchange-sdk'
 import { wrappedCurrency } from 'utils/wrappedCurrency'
 import { useUnsupportedTokens } from '../../hooks/Tokens'
 

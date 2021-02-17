@@ -1,4 +1,4 @@
-import { ChainId } from '@antron3000/sdk'
+import { ChainId } from '@antron3000/u-exchange-sdk'
 import MULTICALL_ABI from './abi.json'
 
 const MULTICALL_NETWORKS: { [chainId in ChainId]: string } = {

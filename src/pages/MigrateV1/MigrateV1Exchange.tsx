@@ -1,6 +1,6 @@
 import { TransactionResponse } from '@ethersproject/abstract-provider'
 import { AddressZero } from '@ethersproject/constants'
-import { Currency, CurrencyAmount, Fraction, JSBI, Percent, Token, TokenAmount, WETH } from '@antron3000/sdk'
+import { Currency, CurrencyAmount, Fraction, JSBI, Percent, Token, TokenAmount, WETH } from '@antron3000/u-exchange-sdk'
 import React, { useCallback, useMemo, useState } from 'react'
 import ReactGA from 'react-ga'
 import { Redirect, RouteComponentProps } from 'react-router'

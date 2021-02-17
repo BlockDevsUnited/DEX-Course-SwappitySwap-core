@@ -1,4 +1,4 @@
-import { Trade, TradeType } from '@antron3000/sdk'
+import { Trade, TradeType } from '@antron3000/u-exchange-sdk'
 import React, { useContext, useMemo } from 'react'
 import { ArrowDown, AlertTriangle } from 'react-feather'
 import { Text } from 'rebass'

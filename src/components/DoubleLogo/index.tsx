@@ -1,4 +1,4 @@
-import { Currency } from '@antron3000/sdk'
+import { Currency } from '@antron3000/u-exchange-sdk'
 import React from 'react'
 import styled from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'

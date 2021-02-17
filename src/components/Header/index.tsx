@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@antron3000/sdk'
+import { ChainId, TokenAmount } from '@antron3000/u-exchange-sdk'
 import React, { useState } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'

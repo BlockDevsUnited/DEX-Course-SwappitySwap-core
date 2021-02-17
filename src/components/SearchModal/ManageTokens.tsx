@@ -6,7 +6,7 @@ import { TYPE, ExternalLinkIcon, TrashIcon, ButtonText, ExternalLink } from 'the
 import { useToken } from 'hooks/Tokens'
 import styled from 'styled-components'
 import { useUserAddedTokens, useRemoveUserAddedToken } from 'state/user/hooks'
-import { Token } from '@antron3000/sdk'
+import { Token } from '@antron3000/u-exchange-sdk'
 import CurrencyLogo from 'components/CurrencyLogo'
 import { getEtherscanLink, isAddress } from 'utils'
 import { useActiveWeb3React } from 'hooks'

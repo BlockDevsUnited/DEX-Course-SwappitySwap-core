@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@antron3000/sdk'
+import { Currency, ETHER, Token } from '@antron3000/u-exchange-sdk'
 
 export function currencyId(currency: Currency): string {
   if (currency === ETHER) return 'ETH'

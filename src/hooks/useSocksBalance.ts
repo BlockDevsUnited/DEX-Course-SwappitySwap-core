@@ -1,4 +1,4 @@
-import { JSBI } from '@antron3000/sdk'
+import { JSBI } from '@antron3000/u-exchange-sdk'
 import { useMemo } from 'react'
 import { NEVER_RELOAD, useSingleCallResult } from '../state/multicall/hooks'
 import { useActiveWeb3React } from './index'

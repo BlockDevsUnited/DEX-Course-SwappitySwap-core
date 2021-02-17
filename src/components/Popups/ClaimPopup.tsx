@@ -1,4 +1,4 @@
-import { TokenAmount } from '@antron3000/sdk'
+import { TokenAmount } from '@antron3000/u-exchange-sdk'
 import React, { useEffect } from 'react'
 import { X } from 'react-feather'
 import styled, { keyframes } from 'styled-components'

@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, WETH, Pair } from '@antron3000/sdk'
+import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, WETH, Pair } from '@antron3000/u-exchange-sdk'
 import { useMemo } from 'react'
 import { DAI, UNI, USDC, USDT, WBTC } from '../../constants'
 import { STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'

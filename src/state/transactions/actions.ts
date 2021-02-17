@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { ChainId } from '@antron3000/sdk'
+import { ChainId } from '@antron3000/u-exchange-sdk'
 
 export interface SerializableTransactionReceipt {
   to: string

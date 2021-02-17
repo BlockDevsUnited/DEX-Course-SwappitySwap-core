@@ -1,4 +1,4 @@
-import { Currency, Pair } from '@antron3000/sdk'
+import { Currency, Pair } from '@antron3000/u-exchange-sdk'
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'
