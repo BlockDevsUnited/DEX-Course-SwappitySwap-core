@@ -2,7 +2,7 @@ import { ChainId, TokenAmount } from '@antron3000/u-exchange-sdk'
 import React, { useMemo } from 'react'
 import { X } from 'react-feather'
 import styled from 'styled-components'
-import tokenLogo from '../../assets/images/token-logo.png'
+import tokenLogo from '../../assets/svg/logo.svg'
 import { UNI } from '../../constants'
 import { UCASH } from '../../constants'
 
@@ -11,7 +11,7 @@ import { useActiveWeb3React } from '../../hooks'
 import { useMerkleDistributorContract } from '../../hooks/useContract'
 import useCurrentBlockTimestamp from '../../hooks/useCurrentBlockTimestamp'
 //import { useTotalUniEarned } from '../../state/stake/hooks'
-import { useAggregateUniBalance, useTokenBalance } from '../../state/wallet/hooks'
+import { useTokenBalance } from '../../state/wallet/hooks'
 import { ExternalLink, TYPE, UniTokenAnimated } from '../../theme'
 import { computeUniCirculation } from '../../utils/computeUniCirculation'
 //import useUSDCPrice from '../../utils/useUSDCPrice'
@@ -19,7 +19,7 @@ import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
 import { Break, CardBGImage, CardNoise, CardSection, DataCard } from '../earn/styled'
 
-const uniPrice = 0.01
+const uniPrice = 0.00000001
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
 `
@@ -49,8 +49,8 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
   const ucash = chainId ? UCASH[chainId] : undefined
 
 
-  const total = useAggregateUniBalance()
-  const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
+  //const total = useAggregateUniBalance()
+  const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, ucash)
   //const uniToClaim: TokenAmount | undefined = useTotalUniEarned()
 
   const totalSupply: TokenAmount | undefined = useTotalSupply(ucash)
@@ -83,7 +83,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
               <AutoColumn gap="md" justify="center">
                 <UniTokenAnimated width="48px" src={tokenLogo} />{' '}
                 <TYPE.white fontSize={48} fontWeight={600} color="white">
-                  {total?.toFixed(2, { groupSeparator: ',' })}
+                  {uniBalance?.toFixed(2, { groupSeparator: ',' })}
                 </TYPE.white>
               </AutoColumn>
               <AutoColumn gap="md">
@@ -111,7 +111,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
           <AutoColumn gap="md">
             <RowBetween>
               <TYPE.white color="white">UCASH price:</TYPE.white>
-              <TYPE.white color="white">${uniPrice?.toFixed(2) ?? '-'}</TYPE.white>
+              <TYPE.white color="white">{uniPrice?.toFixed(8) ?? '-'} BTC</TYPE.white>
             </RowBetween>
             <RowBetween>
               <TYPE.white color="white">UCASH in circulation:</TYPE.white>

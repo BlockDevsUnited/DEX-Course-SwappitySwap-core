@@ -17,7 +17,7 @@ const CMC_ALL_LIST = 'defi.cmc.eth'
 const CMC_STABLECOIN = 'stablecoin.cmc.eth'
 const KLEROS_LIST = 't2crtokens.eth'
 //const GEMINI_LIST = 'https://www.gemini.com/uniswap/manifest.json'
-const UCASH_LIST = 'https://raw.githubusercontent.com/antron3000/uniswap-interface/master/src/tokenList/tokenList.json'
+const UCASH_LIST = 'https://raw.githubusercontent.com/UdotCASH/u-exchange/main/src/constants/tokenLists/tokenList.json'
 
 // lower index == higher priority for token import
 export const DEFAULT_LIST_OF_LISTS: string[] = [

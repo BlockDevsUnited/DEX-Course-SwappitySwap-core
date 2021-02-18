@@ -40,10 +40,10 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
 }
 
-const UCASH_Address = "0x92e52a1a235d9a103d970901066ce910aacefd37"
+const UCASH_Address = "0xeB0De4e9A7a89C4747597FDCBe1ec0a38a99eE89"
 export const UCASH: { [chainId in ChainId]: Token } = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
-  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, "0x92e52a1a235d9a103d970901066ce910aacefd37", 8, 'UCASH', 'Universal Cash'),
+  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, "0xeB0De4e9A7a89C4747597FDCBe1ec0a38a99eE89", 18, 'UCASH', 'Universal Cash'),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UCASH_Address, 8, 'UCASH', 'Universal Cash')

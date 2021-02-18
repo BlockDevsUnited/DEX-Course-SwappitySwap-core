@@ -48,6 +48,14 @@
       "logoURI": "https://i.imgur.com/Y2oqSOp.png"
     },
     {
+      "chainId": 4,
+      "address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+      "name": "Universal Cash",
+      "symbol": "rUCASH",
+      "decimals": 18,
+      "logoURI": "https://i.imgur.com/Y2oqSOp.png"
+    },
+    {
       "chainId": 1,
       "address": "0x18d0e9a30489c78ecebc1afd7ff5d94036cb327f",
       "name": "UCAD",
