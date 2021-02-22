@@ -62,6 +62,30 @@
       "symbol": "UCAD",
       "decimals": 18,
       "logoURI": "https://i.imgur.com/SGYdlO9.png"
+    },
+    {
+      "chainId": 4,
+      "address": "0xd92e713d051c37ebb2561803a3b5fbabc4962431",
+      "name": "TestUsdtToken",
+      "symbol": "TUSDT",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/assets/usdt.svg"
+    },
+    {
+      "chainId": 4,
+      "address": "0xFDB0b435c9C1Fcf81B686aeef33d04f33888dB0c",
+      "name": "uus",
+      "symbol": "uus",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/assets/usdt.svg"
+    },
+    {
+      "chainId": 4,
+      "address": "0x245d53aa8356783f3a5bb72b3bd793fe2fa33c9f",
+      "name": "tusd",
+      "symbol": "tusd",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/assets/usdt.svg"
     }
   ],
   "version": {
