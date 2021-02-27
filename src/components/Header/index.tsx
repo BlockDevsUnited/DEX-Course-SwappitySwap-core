@@ -346,10 +346,10 @@ export default function Header() {
           </StyledNavLink>
           <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
             Vote
-          </StyledNavLink>*/}
+          </StyledNavLink>
           <StyledExternalLink id={`stake-nav-link`} href={'https://info.u.exchange'}>
             Info <span style={{ fontSize: '11px' }}>↗</span>
-          </StyledExternalLink>
+          </StyledExternalLink>*/}
         </HeaderLinks>
       </HeaderRow>
       <HeaderControls>
