@@ -67,7 +67,7 @@ const VoteCard = styled(DataCard)`
 const WrapSmall = styled(RowBetween)`
   ${({ theme }) => theme.mediaWidth.upToSmall`
     flex-wrap: wrap;
-  
+
   `};
 `
 
