@@ -10,16 +10,16 @@ export default function confirmPriceImpactWithoutFee(priceImpactWithoutFee: Perc
   if (!priceImpactWithoutFee.lessThan(PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN)) {
     return (
       window.prompt(
-        `This swap has a price impact of at least ${PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN.toFixed(
+        `This exchange has a price impact of at least ${PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN.toFixed(
           0
-        )}%. Please type the word "confirm" to continue with this swap.`
+        )}%. Please type the word "confirm" to continue with this exchange.`
       ) === 'confirm'
     )
   } else if (!priceImpactWithoutFee.lessThan(ALLOWED_PRICE_IMPACT_HIGH)) {
     return window.confirm(
-      `This swap has a price impact of at least ${ALLOWED_PRICE_IMPACT_HIGH.toFixed(
+      `This exchange has a price impact of at least ${ALLOWED_PRICE_IMPACT_HIGH.toFixed(
         0
-      )}%. Please confirm that you would like to continue with this swap.`
+      )}%. Please confirm that you would like to continue with this exchange.`
     )
   }
   return true

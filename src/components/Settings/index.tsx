@@ -231,7 +231,7 @@ export default function SettingsTab() {
                 <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
                   Disable Multihops
                 </TYPE.black>
-                <QuestionHelper text="Restricts swaps to direct pairs only." />
+                <QuestionHelper text="Restricts exchanges to direct pairs only." />
               </RowFixed>
               <Toggle
                 id="toggle-disable-multihop-button"

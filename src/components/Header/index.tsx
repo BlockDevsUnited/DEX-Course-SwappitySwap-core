@@ -330,7 +330,7 @@ export default function Header() {
           </StyledNavLink>
           <StyledNavLink
             id={`pool-nav-link`}
-            to={'/liquidty'}
+            to={'/liquidity'}
             isActive={(match, { pathname }) =>
               Boolean(match) ||
               pathname.startsWith('/add') ||
@@ -339,7 +339,7 @@ export default function Header() {
               pathname.startsWith('/find')
             }
           >
-            {t('liquidty')}
+            {t('Liquidity')}
           </StyledNavLink>
           {/*<StyledNavLink id={`stake-nav-link`} to={'/uni'}>
             UNI
