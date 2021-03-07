@@ -91,10 +91,10 @@ export default function App() {
             <Switch>
               <Route exact strict path="/" component={Swap} />
               <Route exact strict path="/claim" component={OpenClaimAddressModalAndRedirectToSwap} />
-              <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
+              <Route exact strict path="/exchange/:outputCurrency" component={RedirectToSwap} />
               <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
               <Route exact strict path="/find" component={PoolFinder} />
-              <Route path="/liquidity" component={Pool} />
+              <Route exact strict path="/liquidity" component={Pool} />
               <Route exact strict path="/uni" component={Earn} />
               <Route exact strict path="/vote" component={Vote} />
               <Route exact strict path="/create" component={RedirectToAddLiquidity} />
