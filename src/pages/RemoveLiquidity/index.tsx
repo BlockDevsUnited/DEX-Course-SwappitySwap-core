@@ -123,7 +123,7 @@ export default function RemoveLiquidity({
       { name: 'verifyingContract', type: 'address' }
     ]
     const domain = {
-      name: 'U.EXCHANGE LP Token',
+      name: 'U.EXCHANGE',
       version: '1',
       chainId: chainId,
       verifyingContract: pair.liquidityToken.address

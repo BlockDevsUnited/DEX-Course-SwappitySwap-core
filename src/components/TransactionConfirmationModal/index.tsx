@@ -9,7 +9,7 @@ import { RowBetween, RowFixed } from '../Row'
 import { AlertTriangle, ArrowUpCircle, CheckCircle } from 'react-feather'
 import { ButtonPrimary, ButtonLight } from '../Button'
 import { AutoColumn, ColumnCenter } from '../Column'
-import Circle from '../../assets/images/circle.svg'
+//import Circle from '../../assets/svg/lightcircle.svg'
 import MetaMaskLogo from '../../assets/images/metamask.png'
 import { getEtherscanLink } from '../../utils'
 import { useActiveWeb3React } from '../../hooks'
@@ -47,7 +47,7 @@ function ConfirmationPendingContent({ onDismiss, pendingText }: { onDismiss: () 
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
         <ConfirmedIcon>
-          <CustomLightSpinner src={Circle} alt="loader" size={'90px'} />
+          <CustomLightSpinner src={window.location.origin + "/static/media/circle.2d975615.svg"} alt="loader" size={'90px'} />
         </ConfirmedIcon>
         <AutoColumn gap="12px" justify={'center'}>
           <Text fontWeight={500} fontSize={20}>

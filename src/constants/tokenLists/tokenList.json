@@ -86,7 +86,24 @@
       "symbol": "tusd",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/assets/usdt.svg"
-    }
+    },
+    {
+      "chainId": 56,
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "name": "BNB",
+      "symbol": "BNB",
+      "decimals": 18,
+      "logoURI": "https://cryptologos.cc/logos/binance-coin-bnb-logo.png?v=010"
+    },
+    {
+      "chainId": 56,
+      "address": "0xb2535bc0cb30273b7b109eda98b348d4f4634e05",
+      "name": "bUCASH",
+      "symbol": "bUCASH",
+      "decimals": 18,
+      "logoURI": "https://i.imgur.com/Y2oqSOp.png"
+    },
+
   ],
   "version": {
     "major": 0,
