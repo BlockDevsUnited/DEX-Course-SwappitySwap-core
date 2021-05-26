@@ -55,6 +55,7 @@ export default function ImportRow({
 }) {
   // gloabls
   const { chainId } = useActiveWeb3React()
+
   const theme = useTheme()
 
   // check if token comes from list

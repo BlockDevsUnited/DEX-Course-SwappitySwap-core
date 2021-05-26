@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { injected } from '../connectors'
 import { NetworkContextName } from '../constants'
+import {ETHER} from '@antron3000/u-exchange-sdk'
 
 export function useActiveWeb3React(): Web3ReactContextInterface<Web3Provider> & { chainId?: ChainId } {
   const context = useWeb3ReactCore<Web3Provider>()
@@ -18,6 +19,17 @@ export function useEagerConnect() {
   const [tried, setTried] = useState(false)
 
   useEffect(() => {
+    console.log("ass")
+    console.log(injected)
+    //let cId:number = await injected.getChainId()
+    injected.getChainId().then((chainId) =>{
+      let cId:number = Number(chainId)
+      ETHER.change(cId)
+      console.log(cId)
+    })
+
+    console.log("bass")
+
     injected.isAuthorized().then(isAuthorized => {
       if (isAuthorized) {
         activate(injected, undefined, true).catch(() => {

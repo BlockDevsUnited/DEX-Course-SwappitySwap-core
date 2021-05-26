@@ -298,6 +298,25 @@ export default function Header() {
   // const [isDark] = useDarkModeManager()
   const [darkMode, toggleDarkMode] = useDarkModeManager()
 
+  const switchToPolygon = function() {
+    (window as any).ethereum.request(
+      { method: 'wallet_addEthereumChain',
+        params: [{
+          chainId: '0x89',
+          chainName: 'Polygon Mainnet',
+          nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
+          rpcUrls: ['https://rpc-mainnet.matic.network'],
+          blockExplorerUrls: ['https://explorer.matic.network/']
+        }]
+      }
+    )
+  }
+
+  const switchToBSC = function() {
+    (window as any).ethereum.request({ method: 'wallet_addEthereumChain', params: [{ chainId: '0x38', chainName: 'Binance Smart Chain', nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 }, rpcUrls: ['https://bsc-dataseed.binance.org/'], blockExplorerUrls: ['https://bscscan.com/'] }] })
+  }
+
+
   const toggleClaimModal = useToggleSelfClaimModal()
 
   const availableClaim: boolean = useUserHasAvailableClaim(account)
@@ -407,6 +426,12 @@ export default function Header() {
         <HeaderElementWrap>
           <StyledMenuButton onClick={() => toggleDarkMode()}>
             {darkMode ? <Moon size={20} /> : <Sun size={20} />}
+          </StyledMenuButton>
+          <StyledMenuButton onClick={() => switchToBSC()}>
+            To BSC
+          </StyledMenuButton>
+          <StyledMenuButton onClick={() => switchToPolygon()}>
+            To Polygon
           </StyledMenuButton>
           <Menu />
         </HeaderElementWrap>
