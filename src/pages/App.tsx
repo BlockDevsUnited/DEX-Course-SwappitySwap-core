@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 import AddressClaimModal from '../components/claim/AddressClaimModal'
 import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
 import Polling from '../components/Header/Polling'
 import URLWarning from '../components/Header/URLWarning'
 import Popups from '../components/Popups'
@@ -47,15 +48,16 @@ const HorizontalSplitter = styled.div`
 
 const HeaderWrapper = styled.div`
   ${({ theme }) => theme.flexRowNoWrap}
-  width: 320px;
+  width: 100%;
   justify-content: space-between;
   background: ${({ theme }) => theme.bg1};
-  min-height: 100vh;
+  min-height: 72px;
 `
 
 const Grow = styled.div`
   flex-grow: 1;
   flex-shrink: 0;
+  width: 100%;
 `
 
 const BodyWrapper = styled.div`
@@ -63,7 +65,6 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 100px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -76,6 +77,20 @@ const BodyWrapper = styled.div`
   `};
 
   z-index: 1;
+`
+
+const TopPadding = styled.div`
+  padding-top: 100px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: 16px;
+    padding-top: 2rem;
+  `};
 `
 
 const Marginer = styled.div`
@@ -95,12 +110,14 @@ export default function App() {
       <Route component={DarkModeQueryParamReader} />
       <AppWrapper>
         <URLWarning />
-        <HorizontalSplitter>
         <HeaderWrapper>
           <Header />
         </HeaderWrapper>
         <Grow>
         <BodyWrapper>
+          <HorizontalSplitter>
+          <Sidebar />
+          <TopPadding>
           <Popups />
           <Polling />
           <TopLevelModals />
@@ -132,9 +149,10 @@ export default function App() {
             </Switch>
           </Web3ReactManager>
           <Marginer />
+          </TopPadding>
+          </HorizontalSplitter>
         </BodyWrapper>
         </Grow>
-        </HorizontalSplitter>
       </AppWrapper>
     </Suspense>
   )
