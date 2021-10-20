@@ -3,7 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 
-export const ROUTER_ADDRESS = '0xBC225699c4899CF85894902CD947BDc02b42d610'//'0x9fCbbbc0629ef70AAdd7A70a48A3b840E27E9E0C'//'0x5D5baBE739fa3a1c1a1625a3fbe90125bda362F7'
+export const ROUTER_ADDRESS = '0xd72bAC6C6ba7C87c6fFFDe95a13456efFcB6280a'//'0x9fCbbbc0629ef70AAdd7A70a48A3b840E27E9E0C'//'0x5D5baBE739fa3a1c1a1625a3fbe90125bda362F7'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -37,8 +37,12 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.RSK]: new Token(ChainId.RSK, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.RSKTEST]: new Token(ChainId.RSKTEST, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.BINANCE]: new Token(ChainId.BINANCE, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.BINANCETEST]: new Token(ChainId.BINANCETEST, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.XDAI]: new Token(ChainId.XDAI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.POLYGON]: new Token(ChainId.POLYGON, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
 
 }
@@ -49,8 +53,12 @@ export const UCASH: { [chainId in ChainId]: Token } = {
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, "0xeB0De4e9A7a89C4747597FDCBe1ec0a38a99eE89", 18, 'UCASH', 'Universal Cash'),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
+  [ChainId.RSK]: new Token(ChainId.RSK, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
+  [ChainId.RSKTEST]: new Token(ChainId.RSKTEST, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.BINANCE]: new Token(ChainId.BINANCE, "0xb2535bc0cb30273b7b109eda98b348d4f4634e05", 8, 'UCASH', 'Universal Cash'),
+  [ChainId.BINANCETEST]: new Token(ChainId.BINANCETEST, "0xb2535bc0cb30273b7b109eda98b348d4f4634e05", 8, 'UCASH', 'Universal Cash'),
+  [ChainId.XDAI]: new Token(ChainId.XDAI, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.POLYGON]: new Token(ChainId.POLYGON, "0xe951e4c7b0b91447c1a0a46bfb46630682a3f229", 8, 'UCASH', 'Universal Cash')
 
 }
@@ -72,7 +80,11 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
+  [ChainId.RSK]: [WETH[ChainId.RSK]],
+  [ChainId.RSKTEST]: [WETH[ChainId.RSKTEST]],
   [ChainId.BINANCE]: [WETH[ChainId.BINANCE]],
+  [ChainId.BINANCETEST]: [WETH[ChainId.BINANCETEST]],
+  [ChainId.XDAI]: [WETH[ChainId.XDAI]],
   [ChainId.POLYGON]: [WETH[ChainId.POLYGON]],
 }
 

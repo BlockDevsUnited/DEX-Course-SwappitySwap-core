@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@antron3000/u-exchange-sdk@1.0.16":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@antron3000/u-exchange-sdk/-/u-exchange-sdk-1.0.16.tgz#251aff7713f6468a622b093efac03245decf7c57"
-  integrity sha512-hs7JJWnUvICQ8Py/1mYKsoO9UEdoUFHlnpnOKAttfQZY6omaeg0Aty9h6VlJ/RcsLue/E+AjXgUWRU8daqAZQg==
+"@antron3000/u-exchange-sdk@1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@antron3000/u-exchange-sdk/-/u-exchange-sdk-1.1.8.tgz#7c9eab51a2102a49757016a2e8b3487050dbc45b"
+  integrity sha512-nphYDQ/R9IqiH4Z0ewlOEkoUJ/OVCFGEpLmcfsvD0fBoHcXliEBCYRmhDTKVWgaZUoCvfuWciTMh65r7GnOJDg==
   dependencies:
     "@uniswap/v2-core" "^1.0.0"
     big.js "^5.2.2"
