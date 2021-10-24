@@ -19,16 +19,6 @@ export function useEagerConnect() {
   const [tried, setTried] = useState(false)
 
   useEffect(() => {
-    console.log("ass")
-    console.log(injected)
-    //let cId:number = await injected.getChainId()
-    injected.getChainId().then((chainId) =>{
-      let cId:number = Number(chainId)
-      ETHER.change(cId)
-      console.log(cId)
-    })
-
-    console.log("bass")
 
     injected.isAuthorized().then(isAuthorized => {
       if (isAuthorized) {
@@ -52,6 +42,29 @@ export function useEagerConnect() {
     if (active) {
       setTried(true)
     }
+  }, [active])
+  useEffect(() => {
+    const { ethereum } = window
+    if (ethereum && ethereum.on) {
+      const handleChainChanged = () => {
+        try {
+          injected.getChainId().then((chainId) =>{
+            const cId:number = Number(chainId)
+            ETHER.change(cId)
+            console.log(cId)
+          })
+        } catch (error) {
+          console.log('Failed to set chain')
+        }
+      }
+      ethereum.on('chainChanged', handleChainChanged)
+      return () => {
+        if (ethereum && ethereum.removeListener) {
+          ethereum.removeListener('chainChanged', handleChainChanged)
+        }
+      }
+    }
+    return
   }, [active])
 
   return tried
