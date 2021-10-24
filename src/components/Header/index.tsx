@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@antron3000/u-exchange-sdk'
+import { ChainId, TokenAmount } from '@udotcash/u-exchange-sdk'
 import React, { useState } from 'react'
 import { Text } from 'rebass'
 

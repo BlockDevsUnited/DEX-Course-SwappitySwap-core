@@ -1,4 +1,4 @@
-import { Currency, ETHER, JSBI, TokenAmount } from '@antron3000/u-exchange-sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from '@udotcash/u-exchange-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Plus } from 'react-feather'
 import { Text } from 'rebass'

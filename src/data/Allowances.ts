@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@antron3000/u-exchange-sdk'
+import { Token, TokenAmount } from '@udotcash/u-exchange-sdk'
 import { useMemo } from 'react'
 
 import { useTokenContract } from '../hooks/useContract'

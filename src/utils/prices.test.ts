@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@antron3000/u-exchange-sdk'
+import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@udotcash/u-exchange-sdk'
 import { computeTradePriceBreakdown } from './prices'
 
 describe('prices', () => {

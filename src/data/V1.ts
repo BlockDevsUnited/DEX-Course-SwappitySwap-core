@@ -12,7 +12,7 @@ import {
   Trade,
   TradeType,
   WETH
-} from '@antron3000/u-exchange-sdk'
+} from '@udotcash/u-exchange-sdk'
 import { useMemo } from 'react'
 import { useActiveWeb3React } from '../hooks'
 import { useAllTokens } from '../hooks/Tokens'

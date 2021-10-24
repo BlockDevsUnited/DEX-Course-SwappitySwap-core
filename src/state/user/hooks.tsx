@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token } from '@antron3000/u-exchange-sdk'
+import { ChainId, Pair, Token } from '@udotcash/u-exchange-sdk'
 import flatMap from 'lodash.flatmap'
 import ReactGA from 'react-ga'
 import { useCallback, useMemo } from 'react'

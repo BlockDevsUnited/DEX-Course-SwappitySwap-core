@@ -103,6 +103,14 @@
       "decimals": 18,
       "logoURI": "https://i.imgur.com/Y2oqSOp.png"
     },
+    {
+      "chainId": 30,
+      "address": "0xa511ec4390350b6817CA9122Df8Bd8297eA532F0",
+      "name": "RSK Smart XCP",
+      "symbol": "RXCP",
+      "decimals": 18,
+      "logoURI": "https://i.imgur.com/Y2oqSOp.png"
+    },
 
   ],
   "version": {

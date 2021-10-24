@@ -1,9 +1,9 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@antron3000/u-exchange-sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from '@udotcash/u-exchange-sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 
-export const ROUTER_ADDRESS = '0xd72bAC6C6ba7C87c6fFFDe95a13456efFcB6280a'//'0x9fCbbbc0629ef70AAdd7A70a48A3b840E27E9E0C'//'0x5D5baBE739fa3a1c1a1625a3fbe90125bda362F7'
+export const ROUTER_ADDRESS = '0x08Eda877e32907aA13a04c6f70e6fd73e3436470'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 

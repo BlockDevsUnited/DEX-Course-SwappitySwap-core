@@ -1,4 +1,4 @@
-import { JSBI, Pair, Percent, TokenAmount } from '@antron3000/u-exchange-sdk'
+import { JSBI, Pair, Percent, TokenAmount } from '@udotcash/u-exchange-sdk'
 import { darken } from 'polished'
 import React, { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'react-feather'

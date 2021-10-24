@@ -1,4 +1,4 @@
-import { Currency, Percent, Price } from '@antron3000/u-exchange-sdk'
+import { Currency, Percent, Price } from '@udotcash/u-exchange-sdk'
 import React, { useContext } from 'react'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'

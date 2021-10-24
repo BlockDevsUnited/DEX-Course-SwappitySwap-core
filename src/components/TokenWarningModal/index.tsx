@@ -1,4 +1,4 @@
-import { Token } from '@antron3000/u-exchange-sdk'
+import { Token } from '@udotcash/u-exchange-sdk'
 import React, { useCallback } from 'react'
 import Modal from '../Modal'
 import { ImportToken } from 'components/SearchModal/ImportToken'

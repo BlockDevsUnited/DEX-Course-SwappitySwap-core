@@ -2,19 +2,6 @@
 # yarn lockfile v1
 
 
-"@antron3000/u-exchange-sdk@1.1.8":
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/@antron3000/u-exchange-sdk/-/u-exchange-sdk-1.1.8.tgz#7c9eab51a2102a49757016a2e8b3487050dbc45b"
-  integrity sha512-nphYDQ/R9IqiH4Z0ewlOEkoUJ/OVCFGEpLmcfsvD0fBoHcXliEBCYRmhDTKVWgaZUoCvfuWciTMh65r7GnOJDg==
-  dependencies:
-    "@uniswap/v2-core" "^1.0.0"
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
-
 "@babel/code-frame@7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
@@ -2712,6 +2699,19 @@
     lodash "^4.17.15"
     semver "^7.3.2"
     tsutils "^3.17.1"
+
+"@udotcash/u-exchange-sdk@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@udotcash/u-exchange-sdk/-/u-exchange-sdk-1.0.2.tgz#f3baf7ce6c9ab168c1a39d204225bcb923a8557e"
+  integrity sha512-3lNH3+Xjpr9KXzq/dQ5lBEzgFb7F5dHhXgClLojrO3R5cBFKBTGv0yA8srwHeXll3my44lqsG84xBkE5fzw77w==
+  dependencies:
+    "@uniswap/v2-core" "^1.0.0"
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
 
 "@uniswap/default-token-list@^2.0.0":
   version "2.0.0"

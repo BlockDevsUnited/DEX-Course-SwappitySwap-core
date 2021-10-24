@@ -1,4 +1,4 @@
-import { JSBI, Token, TokenAmount } from '@antron3000/u-exchange-sdk'
+import { JSBI, Token, TokenAmount } from '@udotcash/u-exchange-sdk'
 import { BigNumber } from 'ethers'
 import { STAKING_GENESIS } from '../state/stake/hooks'
 

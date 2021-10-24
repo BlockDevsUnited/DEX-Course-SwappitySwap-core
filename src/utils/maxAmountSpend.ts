@@ -1,4 +1,4 @@
-import { CurrencyAmount, ETHER, JSBI } from '@antron3000/u-exchange-sdk'
+import { CurrencyAmount, ETHER, JSBI } from '@udotcash/u-exchange-sdk'
 import { MIN_ETH } from '../constants'
 
 /**

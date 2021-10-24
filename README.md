@@ -1,11 +1,6 @@
 # TODO
 ## priority
-- fix no metamask error
-- fix remove liquidity
 - deploy on rsk
-- move u-exchange sdk to udotcash
-
-
 
 ## non priority
 - make it so native currency logo changes when you connect to different chains on metamask

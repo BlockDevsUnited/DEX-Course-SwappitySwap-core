@@ -1,4 +1,4 @@
-import { CurrencyAmount, JSBI, Token, Trade } from '@antron3000/u-exchange-sdk'
+import { CurrencyAmount, JSBI, Token, Trade } from '@udotcash/u-exchange-sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
 import ReactGA from 'react-ga'
