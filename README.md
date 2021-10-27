@@ -7,7 +7,7 @@
 - figure out how to use the WrBTC that rsk swap uses
 - 
 ## non priority
-- 
+- remove analytics for the moment
 - redeploy on rsk from fresh address, verify contracts
 - create u-exchange-core repository for smart contracts
 - ssl certificate
