@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import styled from 'styled-components'
 
-import { Activity, MessageSquare, Shuffle, Layers } from 'react-feather'
+import { MessageSquare, Shuffle, Layers } from 'react-feather'
 
 import Row, { RowFixed } from '../Row'
 import { ExternalLink } from '../../theme'
@@ -198,14 +198,14 @@ export default function Sidebar() {
             <Spacer />
             Discord <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink>
-          <StyledExternalLink
+          {/* <StyledExternalLink
             id={`nav-analytics`}
             href={'https://info.u.exchange'}
           >
             <Activity size={20} />
             <Spacer />
             Analytics <span style={{ fontSize: '11px' }}>↗</span>
-          </StyledExternalLink>
+          </StyledExternalLink> */}
           {/*<StyledNavLink id={`stake-nav-link`} to={'/uni'}>
             UNI
           </StyledNavLink>
