@@ -2,15 +2,11 @@
 Deadline november 8 - 400k
 
 ## priority
-- add rsk native currency name and logo
 - add default tokens (figure out how to add tokens as default)
 - test the current deployment
-- change chain swithcing buttons, whatever solution looks good on web and mobile
 - figure out how to use the WrBTC that rsk swap uses
 
-
 ## non priority
-- remove analytics for the moment
 - redeploy on rsk from fresh address, verify contracts
 - create u-exchange-core repository for smart contracts
 - ssl certificate
