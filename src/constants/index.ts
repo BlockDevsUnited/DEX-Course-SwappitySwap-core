@@ -1,3 +1,8 @@
+import EthereumLogo from '../assets/images/ethereum-logo.png'
+import BinanceLogo from '../assets/svg/binance-logo.svg'
+import MaticLogo from '../assets/images/matic-logo.png'
+import RSKLogo from '../assets/images/rsk-logo.png'
+
 import { ChainId, JSBI, Percent, Token, WETH } from '@udotcash/u-exchange-sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
@@ -242,3 +247,123 @@ export const BLOCKED_ADDRESSES: string[] = [
   '0xA7e5d5A720f06526557c513402f2e6B5fA20b008',
   '0x8576aCC5C05D6Ce88f4e49bf65BdF0C62F91353C'
 ]
+
+export const SupportedChainId = ChainId
+
+export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = [
+  ChainId.MAINNET,
+  ChainId.RINKEBY,
+  ChainId.ROPSTEN,
+  ChainId.GÖRLI,
+  ChainId.RSK,
+  ChainId.RSKTEST,
+  ChainId.KOVAN,
+  ChainId.BINANCE,
+  ChainId.BINANCETEST,
+  ChainId.XDAI,
+  ChainId.POLYGON
+]
+
+export const L1_CHAIN_IDS = [
+  [ChainId.MAINNET],
+  [ChainId.RINKEBY],
+  [ChainId.ROPSTEN],
+  [ChainId.GÖRLI],
+  [ChainId.RSK],
+  [ChainId.RSKTEST],
+  [ChainId.KOVAN],
+  [ChainId.BINANCE],
+  [ChainId.BINANCETEST],
+  [ChainId.XDAI],
+  [ChainId.POLYGON]
+]
+
+export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]
+
+export const L2_CHAIN_IDS = []
+
+export interface ChainData {
+  readonly blockWaitMsBeforeWarning?: number
+  readonly docs?: string
+  readonly explorer: string
+  readonly infoLink?: string
+  readonly label: string
+  readonly logoUrl?: string
+  readonly rpcUrls?: string[]
+  readonly nativeCurrency: {
+    name: string // 'Goerli ETH',
+    symbol: string // 'gorETH',
+    decimals: number //18,
+  }
+}
+
+export type ChainInfo = { readonly [cId: number]: ChainData }
+
+export const CHAIN_INFO: ChainInfo = {
+  [ChainId.MAINNET]: {
+    label: 'Ethereum',
+    explorer: 'https://etherscan.io/',
+    logoUrl: EthereumLogo,
+    nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 }
+  },
+  [ChainId.RINKEBY]: {
+    label: 'Rinkeby',
+    explorer: 'https://rinkeby.etherscan.io/',
+    nativeCurrency: { name: 'Rinkeby ETH', symbol: 'rinkETH', decimals: 18 }
+  },
+  [ChainId.ROPSTEN]: {
+    label: 'Ropsten',
+    explorer: 'https://ropsten.etherscan.io/',
+    nativeCurrency: { name: 'Ropsten ETH', symbol: 'ropETH', decimals: 18 }
+  },
+  [ChainId.GÖRLI]: {
+    label: 'Görli',
+    explorer: 'https://goerli.etherscan.io/',
+    nativeCurrency: { name: 'Görli ETH', symbol: 'görETH', decimals: 18 }
+  },
+  [ChainId.RSK]: {
+    label: 'RSK',
+    explorer: 'https://explorer.rsk.co/',
+    nativeCurrency: { name: 'RBTC', symbol: 'RBTC', decimals: 18 },
+    rpcUrls: ['https://public-node.rsk.co'],
+    logoUrl: RSKLogo
+  },
+  [ChainId.RSKTEST]: {
+    label: 'RSK Testnet',
+    explorer: 'https://explorer.testnet.rsk.co/',
+    nativeCurrency: { name: 'tRBTC', symbol: 'rRBTC', decimals: 18 },
+    rpcUrls: ['https://public-node.testnet.rsk.co'],
+    logoUrl: RSKLogo
+  },
+  [ChainId.KOVAN]: {
+    label: 'Kovan',
+    explorer: 'https://kovan.etherscan.io/',
+    nativeCurrency: { name: 'Kovan ETH', symbol: 'kovETH', decimals: 18 }
+  },
+  [ChainId.BINANCE]: {
+    label: 'BSC',
+    logoUrl: BinanceLogo,
+    explorer: 'https://bscscan.com/',
+    rpcUrls: ['https://bsc-dataseed.binance.org/'],
+    nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 }
+  },
+  [ChainId.BINANCETEST]: {
+    label: 'BSC Test',
+    logoUrl: BinanceLogo,
+    explorer: 'https://testnet.bscscan.com/',
+    nativeCurrency: { name: 'Test BNB', symbol: 'BNB', decimals: 18 }
+  },
+  [ChainId.XDAI]: {
+    label: 'xDai',
+    explorer: 'https://blockscout.com/xdai/mainnet/',
+    nativeCurrency: { name: 'xDai', symbol: 'xDAI', decimals: 18 },
+    rpcUrls: ['https://rpc.xdaichain.com/']
+  },
+  [ChainId.POLYGON]: {
+    label: 'Polygon Mainnet',
+    logoUrl: MaticLogo,
+    rpcUrls: ['https://rpc-mainnet.matic.network'],
+    explorer: 'https://explorer.matic.network/',
+    nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 }
+  }
+}
