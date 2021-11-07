@@ -11,7 +11,7 @@ import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
-import { TYPE} from '../../theme'
+import { TYPE } from '../../theme'
 import { useTranslation } from 'react-i18next'
 
 import { YellowCard } from '../Card'
@@ -29,8 +29,7 @@ import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
-import BinanceLogo from '../../assets/svg/binance-logo.svg'
-import MaticLogo from '../../assets/images/matic-logo.png'
+import NetworkSelector from './NetworkSelector'
 
 const HeaderFrame = styled.div`
   display: grid;
@@ -223,15 +222,6 @@ const UniIcon = styled.div`
   }
 `
 
-const StyledLogo = styled.img<{ size: string }>`
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
-  border-radius: ${({ size }) => size};
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
-  background-color: ${({ theme }) => theme.white};
-  margin-right: 8px;
-`
-
 const StyledNavLink = styled(NavLink).attrs({
   activeClassName
 })`
@@ -309,6 +299,7 @@ export const StyledMenuButton = styled.button`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: ${({ theme }) => theme.text1};
 
   :hover,
   :focus {
@@ -334,30 +325,11 @@ const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
 
 export default function Header() {
   const { t } = useTranslation()
-  const { account, chainId } = useActiveWeb3React()
+  const { account, chainId, active } = useActiveWeb3React()
 
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   // const [isDark] = useDarkModeManager()
   const [darkMode, toggleDarkMode] = useDarkModeManager()
-
-  const switchToPolygon = function() {
-    (window as any).ethereum.request(
-      { method: 'wallet_addEthereumChain',
-        params: [{
-          chainId: '0x89',
-          chainName: 'Polygon Mainnet',
-          nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
-          rpcUrls: ['https://rpc-mainnet.matic.network'],
-          blockExplorerUrls: ['https://explorer.matic.network/']
-        }]
-      }
-    )
-  }
-
-  const switchToBSC = function() {
-    (window as any).ethereum.request({ method: 'wallet_addEthereumChain', params: [{ chainId: '0x38', chainName: 'Binance Smart Chain', nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 }, rpcUrls: ['https://bsc-dataseed.binance.org/'], blockExplorerUrls: ['https://bscscan.com/'] }] })
-  }
-
 
   const toggleClaimModal = useToggleSelfClaimModal()
 
@@ -372,6 +344,7 @@ export default function Header() {
 
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
+  const showNetworkSelector = active && typeof account === 'string'
 
   return (
     <HeaderFrame>
@@ -427,8 +400,9 @@ export default function Header() {
         </HeaderLinks>
       <HeaderControls>
         <HeaderElement>
+          {showNetworkSelector && <NetworkSelector />}
           <HideSmall>
-            {chainId && NETWORK_LABELS[chainId] && (
+            {chainId && NETWORK_LABELS[chainId] && !showNetworkSelector && (
               <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
             )}
           </HideSmall>
@@ -480,14 +454,6 @@ export default function Header() {
         <HeaderElementWrap>
           <StyledMenuButton onClick={() => toggleDarkMode()}>
             {darkMode ? <Moon size={20} /> : <Sun size={20} />}
-          </StyledMenuButton>
-          <StyledMenuButton onClick={() => switchToBSC()}>
-            <StyledLogo size={'20px'} src={BinanceLogo} />
-            To BSC
-          </StyledMenuButton>
-          <StyledMenuButton onClick={() => switchToPolygon()}>
-            <StyledLogo size={'20px'} src={MaticLogo} />
-            To Polygon
           </StyledMenuButton>
         </HeaderElementWrap>
       </HeaderControls>
