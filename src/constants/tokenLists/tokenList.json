@@ -126,6 +126,14 @@
       "symbol": "WRBTC",
       "decimals": 18,
       "logoURI": "https://i.imgur.com/Y2oqSOp.png"
+    },
+    {
+      "chainId": 31,
+      "address": "0x08EdA877e32907aA13a04C6F70e6fD73e3436470",
+      "name": "Unocoin",
+      "symbol": "UNO",
+      "decimals": 18,
+      "logoURI": "https://i.imgur.com/Y2oqSOp.png"
     }
   ],
   "version": {
