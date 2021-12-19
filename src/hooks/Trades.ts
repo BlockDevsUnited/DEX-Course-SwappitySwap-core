@@ -1,5 +1,5 @@
 import { isTradeBetter } from 'utils/trades'
-import { Currency, CurrencyAmount, Pair, Token, Trade } from '@udotcash/u-exchange-sdk'
+import { Currency, CurrencyAmount, Pair, Token, Trade } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import flatMap from 'lodash.flatmap'
 import { useMemo } from 'react'
 

@@ -13,7 +13,7 @@ import { useProposalData, useUserVotesAsOfBlock, ProposalData, useUserDelegatee 
 import { DateTime } from 'luxon'
 import ReactMarkdown from 'react-markdown'
 import VoteModal from '../../components/vote/VoteModal'
-import { TokenAmount, JSBI } from '@udotcash/u-exchange-sdk'
+import { TokenAmount, JSBI } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { useActiveWeb3React } from '../../hooks'
 import { AVERAGE_BLOCK_TIME_IN_SECS, COMMON_CONTRACT_NAMES, UNI, ZERO_ADDRESS } from '../../constants'
 import { isAddress, getEtherscanLink } from '../../utils'

@@ -1,4 +1,4 @@
-import { TokenAmount, Pair, Currency } from '@udotcash/u-exchange-sdk'
+import { TokenAmount, Pair, Currency } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { useMemo } from 'react'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { Interface } from '@ethersproject/abi'

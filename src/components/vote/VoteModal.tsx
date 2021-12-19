@@ -12,7 +12,7 @@ import Circle from '../../assets/images/blue-loader.svg'
 import { useVoteCallback, useUserVotes } from '../../state/governance/hooks'
 import { getEtherscanLink } from '../../utils'
 import { ExternalLink } from '../../theme/components'
-import { TokenAmount } from '@udotcash/u-exchange-sdk'
+import { TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;

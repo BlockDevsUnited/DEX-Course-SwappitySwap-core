@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { Token } from '@udotcash/u-exchange-sdk'
+import { Token } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { AutoRow, RowFixed } from 'components/Row'
 import { AutoColumn } from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'

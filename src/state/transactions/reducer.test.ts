@@ -1,4 +1,4 @@
-import { ChainId } from '@udotcash/u-exchange-sdk'
+import { ChainId } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { createStore, Store } from 'redux'
 import { addTransaction, checkedTransaction, clearAllTransactions, finalizeTransaction } from './actions'
 import reducer, { initialState, TransactionState } from './reducer'

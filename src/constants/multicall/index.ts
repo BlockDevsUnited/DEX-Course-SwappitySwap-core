@@ -1,4 +1,4 @@
-import { ChainId } from '@udotcash/u-exchange-sdk'
+import { ChainId } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import MULTICALL_ABI from './abi.json'
 
 const MULTICALL_NETWORKS: { [chainId in ChainId]: string } = {

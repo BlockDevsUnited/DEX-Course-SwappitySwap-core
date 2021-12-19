@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
-import { Token, TokenAmount, WETH } from '@udotcash/u-exchange-sdk'
+import { Token, TokenAmount, WETH } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 
 import { Text } from 'rebass'
 import { AutoColumn } from '../Column'

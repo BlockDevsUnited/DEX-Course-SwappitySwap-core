@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { AddressZero } from '@ethersproject/constants'
-import { TokenAmount, Token, ChainId, Percent, JSBI } from '@udotcash/u-exchange-sdk'
+import { TokenAmount, Token, ChainId, Percent, JSBI } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 
 import {
   getEtherscanLink,

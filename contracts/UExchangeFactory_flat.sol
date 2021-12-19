@@ -1,6 +1,4 @@
-
 // File: uexchangefactory_flat.sol
-
 
 // File: interfaces/IUExchangeCallee.sol
 
@@ -50,8 +48,6 @@ library UQ112x112 {
 }
 
 // File: libraries/Math.sol
-
-
 
 // a library for performing various math operations
 
@@ -120,9 +116,6 @@ interface IUExchangeERC20 {
 }
 
 // File: UExchangeERC20.sol
-
-
-
 
 contract UExchangeERC20 is IUExchangeERC20 {
     using SafeMath for uint;
@@ -216,7 +209,6 @@ contract UExchangeERC20 is IUExchangeERC20 {
 
 // File: interfaces/IUExchangePair.sol
 
-
 interface IUExchangePair {
     event Approval(address indexed owner, address indexed spender, uint value);
     event Transfer(address indexed from, address indexed to, uint value);
@@ -269,14 +261,6 @@ interface IUExchangePair {
 }
 
 // File: UExchangePair.sol
-
-
-
-
-
-
-
-
 
 contract UExchangePair is IUExchangePair, UExchangeERC20 {
     using SafeMath  for uint;
@@ -472,7 +456,6 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
 
 // File: interfaces/IUExchangeFactory.sol
 
-
 interface IUExchangeFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
 
@@ -491,10 +474,8 @@ interface IUExchangeFactory {
 
 // File: UExchangeFactory.sol
 
-
-
-
 contract UExchangeFactory is IUExchangeFactory {
+    bytes32 public constant INIT_CODE_PAIR_HASH = keccak256(abi.encodePacked(type(UExchangePair).creationCode));
     address public feeTo;
     address public feeToSetter;
 

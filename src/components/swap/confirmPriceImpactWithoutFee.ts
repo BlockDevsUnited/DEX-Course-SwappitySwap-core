@@ -1,4 +1,4 @@
-import { Percent } from '@udotcash/u-exchange-sdk'
+import { Percent } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { ALLOWED_PRICE_IMPACT_HIGH, PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN } from '../../constants'
 
 /**

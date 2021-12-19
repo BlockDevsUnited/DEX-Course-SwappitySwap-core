@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@udotcash/u-exchange-sdk'
+import { Token, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { useMemo } from 'react'
 import { useAllTokenBalances } from '../../state/wallet/hooks'
 

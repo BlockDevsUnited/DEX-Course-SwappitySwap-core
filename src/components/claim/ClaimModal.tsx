@@ -1,4 +1,4 @@
-import { JSBI, TokenAmount } from '@udotcash/u-exchange-sdk'
+import { JSBI, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { isAddress } from 'ethers/lib/utils'
 import React, { useEffect, useState } from 'react'
 import { Text } from 'rebass'

@@ -1,7 +1,6 @@
-
 // File: interfaces/IWETH.sol
-
-pragma solidity >=0.5.0;
+pragma solidity ^0.6.6;
+//pragma solidity >=0.5.0;
 
 interface IWETH {
     function deposit() external payable;
@@ -11,7 +10,7 @@ interface IWETH {
 
 // File: interfaces/IERC20.sol
 
-pragma solidity >=0.5.0;
+//pragma solidity >=0.5.0;
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -31,7 +30,7 @@ interface IERC20 {
 
 // File: libraries/SafeMath.sol
 
-pragma solidity >=0.5.16;
+//pragma solidity >=0.5.16;
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
 
@@ -51,7 +50,7 @@ library SafeMath {
 
 // File: interfaces/IUExchangePair.sol
 
-pragma solidity >=0.5.0;
+//pragma solidity >=0.5.0;
 
 interface IUExchangePair {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -106,7 +105,7 @@ interface IUExchangePair {
 
 // File: libraries/UExchangeLibrary.sol
 
-pragma solidity >=0.5.0;
+//pragma solidity >=0.5.0;
 
 
 
@@ -127,7 +126,7 @@ library UExchangeLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'3ac79b4de4d113b17d787dcff108b9507d8011331dbc2da2e55d5545d6059ac6' // init code hash
+                hex'fbc46437b443cd8d82755f5a02d9fc3e51b9ae6ddc401bd1158b1cb07013e265' // init code hash
             ))));
     }
 
@@ -189,7 +188,7 @@ library UExchangeLibrary {
 
 // File: interfaces/IUExchangeRouter01.sol
 
-pragma solidity >=0.6.2;
+//pragma solidity >=0.6.2;
 
 interface IUExchangeRouter01 {
     function factory() external pure returns (address);
@@ -287,7 +286,7 @@ interface IUExchangeRouter01 {
 
 // File: interfaces/IUExchangeRouter02.sol
 
-pragma solidity >=0.6.6;
+//pragma solidity >=0.6.6;
 
 
 interface IUExchangeRouter02 is IUExchangeRouter01 {
@@ -335,7 +334,7 @@ interface IUExchangeRouter02 is IUExchangeRouter01 {
 
 
 
-pragma solidity >=0.6.0;
+//pragma solidity >=0.6.0;
 
 // helper methods for interacting with ERC20 tokens and sending ETH that do not consistently return true/false
 library TransferHelper {
@@ -386,7 +385,7 @@ library TransferHelper {
 }
 // File: interfaces/IUExchangeFactory.sol
 
-pragma solidity >=0.5.0;
+//pragma solidity >=0.5.0;
 
 interface IUExchangeFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
@@ -406,14 +405,7 @@ interface IUExchangeFactory {
 
 // File: UExchangeRouter.sol
 
-pragma solidity ^0.6.6;
-
-
-
-
-
-
-
+//pragma solidity ^0.6.6;
 
 contract UExchangeRouter02 is IUExchangeRouter02 {
     using SafeMath for uint;

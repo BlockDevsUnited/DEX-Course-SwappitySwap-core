@@ -1,4 +1,4 @@
-import { Currency, Pair } from '@udotcash/u-exchange-sdk'
+import { Currency, Pair } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { darken } from 'polished'

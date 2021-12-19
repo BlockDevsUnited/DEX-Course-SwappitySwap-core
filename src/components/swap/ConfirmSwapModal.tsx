@@ -1,4 +1,4 @@
-import { currencyEquals, Trade } from '@udotcash/u-exchange-sdk'
+import { currencyEquals, Trade } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

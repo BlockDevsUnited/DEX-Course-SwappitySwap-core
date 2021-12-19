@@ -1,4 +1,4 @@
-import { JSBI, Pair, Percent, TokenAmount } from '@udotcash/u-exchange-sdk'
+import { JSBI, Pair, Percent, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { darken } from 'polished'
 import React, { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'react-feather'

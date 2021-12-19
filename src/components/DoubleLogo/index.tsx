@@ -1,4 +1,4 @@
-import { Currency } from '@udotcash/u-exchange-sdk'
+import { Currency } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import React from 'react'
 import styled from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'

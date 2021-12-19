@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Token, TokenAmount } from '@udotcash/u-exchange-sdk'
+import { Token, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import { useTokenContract } from '../hooks/useContract'
 import { useSingleCallResult } from '../state/multicall/hooks'
 

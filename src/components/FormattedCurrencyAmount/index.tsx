@@ -1,5 +1,5 @@
 import React from 'react'
-import { CurrencyAmount, Fraction, JSBI } from '@udotcash/u-exchange-sdk'
+import { CurrencyAmount, Fraction, JSBI } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 
 const CURRENCY_AMOUNT_MIN = new Fraction(JSBI.BigInt(1), JSBI.BigInt(1000000))
 

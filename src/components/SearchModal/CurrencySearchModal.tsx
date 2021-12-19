@@ -1,4 +1,4 @@
-import { Currency, Token } from '@udotcash/u-exchange-sdk'
+import { Currency, Token } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import useLast from '../../hooks/useLast'
 import Modal from '../Modal'

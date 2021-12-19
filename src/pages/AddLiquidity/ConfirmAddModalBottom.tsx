@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from '@udotcash/u-exchange-sdk'
+import { Currency, CurrencyAmount, Fraction, Percent } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 import React from 'react'
 import { Text } from 'rebass'
 import { ButtonPrimary } from '../../components/Button'
