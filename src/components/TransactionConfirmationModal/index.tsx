@@ -47,7 +47,11 @@ function ConfirmationPendingContent({ onDismiss, pendingText }: { onDismiss: () 
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
         <ConfirmedIcon>
-          <CustomLightSpinner src={window.location.origin + "/static/media/circle.2d975615.svg"} alt="loader" size={'90px'} />
+          <CustomLightSpinner
+            src={window.location.origin + '/static/media/circle.2d975615.svg'}
+            alt="loader"
+            size={'90px'}
+          />
         </ConfirmedIcon>
         <AutoColumn gap="12px" justify={'center'}>
           <Text fontWeight={500} fontSize={20}>

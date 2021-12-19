@@ -56,7 +56,7 @@ const StyledMenuButton = styled.button`
   height: 35px;
 
   padding: 0.15rem 0.5rem;
-  border-radius: 0.0rem;
+  border-radius: 0rem;
 
   :hover,
   :focus {

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import {MessageCircle, PieChart } from 'react-feather'
+import { MessageCircle, PieChart } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -92,7 +92,7 @@ export default function Menu() {
   const open = useModalOpen(ApplicationModal.MENU)
   const toggle = useToggleModal(ApplicationModal.MENU)
   useOnClickOutside(node, open ? toggle : undefined)
-//const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
+  //const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
 
   return (
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451

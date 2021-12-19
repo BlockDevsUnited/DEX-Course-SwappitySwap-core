@@ -5,7 +5,7 @@ import { ChainData } from 'constants/index'
 
 interface AddNetworkArguments {
   library: Web3Provider
-  chainId: number 
+  chainId: number
   info: ChainData
 }
 
@@ -25,9 +25,9 @@ export async function addNetwork({ library, chainId, info }: AddNetworkArguments
           chainName: info.label,
           rpcUrls: info.rpcUrls,
           nativeCurrency: info.nativeCurrency,
-          blockExplorerUrls: [info.explorer],
-        },
-      ],
+          blockExplorerUrls: [info.explorer]
+        }
+      ]
     })
   } catch (error) {
     console.error('error adding eth network: ', chainId, info, error)

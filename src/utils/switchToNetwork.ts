@@ -23,7 +23,7 @@ export async function switchToNetwork({ library, chainId }: SwitchNetworkArgumen
   try {
     await library?.provider.request({
       method: 'wallet_switchEthereumChain',
-      params: [{ chainId: formattedChainId }],
+      params: [{ chainId: formattedChainId }]
     })
   } catch (error) {
     // 4902 is the error code for attempting to switch to an unrecognized chainId

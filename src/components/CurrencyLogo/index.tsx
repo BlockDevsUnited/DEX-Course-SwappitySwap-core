@@ -55,13 +55,13 @@ export default function CurrencyLogo({
 
   if (currency === ETHER) {
     console.log(ETHER.symbol)
-    if(ETHER.symbol==="ETH"){
+    if (ETHER.symbol === 'ETH') {
       return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
     }
-    if(ETHER.symbol==="BNB"){
+    if (ETHER.symbol === 'BNB') {
       return <StyledEthereumLogo src={BinanceLogo} size={size} style={style} />
     }
-    if(ETHER.symbol==="MATIC"){
+    if (ETHER.symbol === 'MATIC') {
       return <StyledEthereumLogo src={MaticLogo} size={size} style={style} />
     }
 

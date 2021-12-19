@@ -120,7 +120,6 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   :focus {
     color: ${({ theme }) => darken(0.1, theme.text1)};
   }
-
 `
 
 export const StyledMenuButton = styled.button`
@@ -165,11 +164,7 @@ export default function Sidebar() {
           <StyledNavLink
             id={`swap-nav-link`}
             to={'/exchange'}
-            isActive={(match, { pathname }) =>
-              Boolean(match) ||
-              pathname.startsWith('/exchange') ||
-              pathname === '/'
-            }
+            isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/exchange') || pathname === '/'}
           >
             <Shuffle size={20} />
             <Spacer />
@@ -190,10 +185,7 @@ export default function Sidebar() {
             <Spacer />
             {t('Liquidity')}
           </StyledNavLink>
-          <StyledExternalLink
-            id={`nav-discord`}
-            href={'https://discord.gg/Smm8zjEuyB'}
-          >
+          <StyledExternalLink id={`nav-discord`} href={'https://discord.gg/Smm8zjEuyB'}>
             <MessageSquare size={20} />
             <Spacer />
             Discord <span style={{ fontSize: '11px' }}>↗</span>

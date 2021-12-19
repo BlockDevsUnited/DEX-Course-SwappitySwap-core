@@ -49,23 +49,51 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.BINANCETEST]: new Token(ChainId.BINANCETEST, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.XDAI]: new Token(ChainId.XDAI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.POLYGON]: new Token(ChainId.POLYGON, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
-
 }
 
-const UCASH_Address = "0xeB0De4e9A7a89C4747597FDCBe1ec0a38a99eE89"
+const UCASH_Address = '0xeB0De4e9A7a89C4747597FDCBe1ec0a38a99eE89'
 export const UCASH: { [chainId in ChainId]: Token } = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, "0x92e52a1a235d9a103d970901066ce910aacefd37", 8, 'UCASH', 'Universal Cash'),
-  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, "0xeB0De4e9A7a89C4747597FDCBe1ec0a38a99eE89", 18, 'UCASH', 'Universal Cash'),
+  [ChainId.MAINNET]: new Token(
+    ChainId.MAINNET,
+    '0x92e52a1a235d9a103d970901066ce910aacefd37',
+    8,
+    'UCASH',
+    'Universal Cash'
+  ),
+  [ChainId.RINKEBY]: new Token(
+    ChainId.RINKEBY,
+    '0xeB0De4e9A7a89C4747597FDCBe1ec0a38a99eE89',
+    18,
+    'UCASH',
+    'Universal Cash'
+  ),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.RSK]: new Token(ChainId.RSK, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.RSKTEST]: new Token(ChainId.RSKTEST, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
-  [ChainId.BINANCE]: new Token(ChainId.BINANCE, "0xb2535bc0cb30273b7b109eda98b348d4f4634e05", 8, 'UCASH', 'Universal Cash'),
-  [ChainId.BINANCETEST]: new Token(ChainId.BINANCETEST, "0xb2535bc0cb30273b7b109eda98b348d4f4634e05", 8, 'UCASH', 'Universal Cash'),
+  [ChainId.BINANCE]: new Token(
+    ChainId.BINANCE,
+    '0xb2535bc0cb30273b7b109eda98b348d4f4634e05',
+    8,
+    'UCASH',
+    'Universal Cash'
+  ),
+  [ChainId.BINANCETEST]: new Token(
+    ChainId.BINANCETEST,
+    '0xb2535bc0cb30273b7b109eda98b348d4f4634e05',
+    8,
+    'UCASH',
+    'Universal Cash'
+  ),
   [ChainId.XDAI]: new Token(ChainId.XDAI, UCASH_Address, 8, 'UCASH', 'Universal Cash'),
-  [ChainId.POLYGON]: new Token(ChainId.POLYGON, "0xe951e4c7b0b91447c1a0a46bfb46630682a3f229", 8, 'UCASH', 'Universal Cash')
-
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    '0xe951e4c7b0b91447c1a0a46bfb46630682a3f229',
+    8,
+    'UCASH',
+    'Universal Cash'
+  )
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
@@ -90,7 +118,7 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.BINANCE]: [WETH[ChainId.BINANCE]],
   [ChainId.BINANCETEST]: [WETH[ChainId.BINANCETEST]],
   [ChainId.XDAI]: [WETH[ChainId.XDAI]],
-  [ChainId.POLYGON]: [WETH[ChainId.POLYGON]],
+  [ChainId.POLYGON]: [WETH[ChainId.POLYGON]]
 }
 
 // used to construct intermediary pairs for trading

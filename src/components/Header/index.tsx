@@ -359,36 +359,32 @@ export default function Header() {
           </UniIcon>
         </Title>
       </HeaderRow>
-        <HeaderLinks>
-          <StyledNavLink
-            id={`swap-nav-link`}
-            to={'/exchange'}
-            isActive={(match, { pathname }) =>
-              Boolean(match) ||
-              pathname.startsWith('/exchange') ||
-              pathname === '/'
-            }
-          >
-            <Shuffle size={20} />
-            <Spacer />
-            {t('Exchange')}
-          </StyledNavLink>
-          <StyledNavLink
-            id={`pool-nav-link`}
-            to={'/liquidity'}
-            isActive={(match, { pathname }) =>
-              Boolean(match) ||
-              pathname.startsWith('/add') ||
-              pathname.startsWith('/remove') ||
-              pathname.startsWith('/create') ||
-              pathname.startsWith('/find')
-            }
-          >
-            <Layers size={20} />
-            <Spacer />
-            {t('Liquidity')}
-          </StyledNavLink>
-          {/*<StyledNavLink id={`stake-nav-link`} to={'/uni'}>
+      <HeaderLinks>
+        <StyledNavLink
+          id={`swap-nav-link`}
+          to={'/exchange'}
+          isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/exchange') || pathname === '/'}
+        >
+          <Shuffle size={20} />
+          <Spacer />
+          {t('Exchange')}
+        </StyledNavLink>
+        <StyledNavLink
+          id={`pool-nav-link`}
+          to={'/liquidity'}
+          isActive={(match, { pathname }) =>
+            Boolean(match) ||
+            pathname.startsWith('/add') ||
+            pathname.startsWith('/remove') ||
+            pathname.startsWith('/create') ||
+            pathname.startsWith('/find')
+          }
+        >
+          <Layers size={20} />
+          <Spacer />
+          {t('Liquidity')}
+        </StyledNavLink>
+        {/*<StyledNavLink id={`stake-nav-link`} to={'/uni'}>
             UNI
           </StyledNavLink>
           <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
@@ -397,7 +393,7 @@ export default function Header() {
           <StyledExternalLink id={`stake-nav-link`} href={'https://info.u.exchange'}>
             Info <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink>*/}
-        </HeaderLinks>
+      </HeaderLinks>
       <HeaderControls>
         <HeaderElement>
           {showNetworkSelector && <NetworkSelector />}

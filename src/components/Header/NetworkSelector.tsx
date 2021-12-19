@@ -133,7 +133,6 @@ const StyledChevronDown = styled(ChevronDown)`
   width: 12px;
 `
 
-
 export default function NetworkSelector() {
   const { chainId, library, account, active } = useActiveWeb3React()
   const node = useRef<HTMLDivElement>()

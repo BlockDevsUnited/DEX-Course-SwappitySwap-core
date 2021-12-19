@@ -48,7 +48,6 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
   const uni = chainId ? UNI[chainId] : undefined
   const ucash = chainId ? UCASH[chainId] : undefined
 
-
   //const total = useAggregateUniBalance()
   const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, ucash)
   //const uniToClaim: TokenAmount | undefined = useTotalUniEarned()

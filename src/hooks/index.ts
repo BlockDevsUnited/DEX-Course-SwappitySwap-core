@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { injected } from '../connectors'
 import { NetworkContextName } from '../constants'
-import {ETHER} from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { ETHER } from '@violeta.at.bww/dex-course-u-exchange-sdk'
 
 export function useActiveWeb3React(): Web3ReactContextInterface<Web3Provider> & { chainId?: ChainId } {
   const context = useWeb3ReactCore<Web3Provider>()
@@ -19,7 +19,6 @@ export function useEagerConnect() {
   const [tried, setTried] = useState(false)
 
   useEffect(() => {
-
     injected.isAuthorized().then(isAuthorized => {
       if (isAuthorized) {
         activate(injected, undefined, true).catch(() => {
@@ -48,8 +47,8 @@ export function useEagerConnect() {
     if (ethereum && ethereum.on) {
       const handleChainChanged = () => {
         try {
-          injected.getChainId().then((chainId) =>{
-            const cId:number = Number(chainId)
+          injected.getChainId().then(chainId => {
+            const cId = Number(chainId)
             ETHER.change(cId)
             console.log(cId)
           })
