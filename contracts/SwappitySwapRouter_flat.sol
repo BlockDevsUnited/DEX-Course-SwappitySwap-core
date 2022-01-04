@@ -126,7 +126,7 @@ library SwappitySwapLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'fbc46437b443cd8d82755f5a02d9fc3e51b9ae6ddc401bd1158b1cb07013e265' // init code hash
+                hex'0x45c2e84b5d005b77822428b2bf75609ac4643787ad2533d643598124ade9fa6c' // init code hash
             ))));
     }
 
