@@ -1,11 +1,11 @@
-// File: uexchangefactory_flat.sol
+// File: swappityswapfactory_flat.sol
 
-// File: interfaces/IUExchangeCallee.sol
+// File: interfaces/ISwappitySwapCallee.sol
 
 pragma solidity >=0.5.16;
 
-interface IUExchangeCallee {
-    function uexchangeCall(address sender, uint amount0, uint amount1, bytes calldata data) external;
+interface ISwappitySwapCallee {
+    function swappityswapCall(address sender, uint amount0, uint amount1, bytes calldata data) external;
 }
 
 // File: interfaces/IERC20.sol
@@ -90,10 +90,10 @@ library SafeMath {
     }
 }
 
-// File: interfaces/IUExchangeERC20.sol
+// File: interfaces/ISwappitySwapERC20.sol
 
 
-interface IUExchangeERC20 {
+interface ISwappitySwapERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
     event Transfer(address indexed from, address indexed to, uint value);
 
@@ -115,13 +115,13 @@ interface IUExchangeERC20 {
     function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;
 }
 
-// File: UExchangeERC20.sol
+// File: SwappitySwapERC20.sol
 
-contract UExchangeERC20 is IUExchangeERC20 {
+contract SwappitySwapERC20 is ISwappitySwapERC20 {
     using SafeMath for uint;
 
-    string public constant name = 'U.EXCHANGE LP Token';
-    string public constant symbol = 'U.EXCHANGE LP';
+    string public constant name = 'SWAPPITYSWAP LP Token';
+    string public constant symbol = 'SWAPPITYSWAP LP';
     uint8 public constant decimals = 18;
     uint  public totalSupply;
     mapping(address => uint) public balanceOf;
@@ -193,7 +193,7 @@ contract UExchangeERC20 is IUExchangeERC20 {
     }
 
     function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external {
-        require(deadline >= block.timestamp, 'U.EXCHANGE: EXPIRED');
+        require(deadline >= block.timestamp, 'SWAPPITYSWAP: EXPIRED');
         bytes32 digest = keccak256(
             abi.encodePacked(
                 '\x19\x01',
@@ -202,14 +202,14 @@ contract UExchangeERC20 is IUExchangeERC20 {
             )
         );
         address recoveredAddress = ecrecover(digest, v, r, s);
-        require(recoveredAddress != address(0) && recoveredAddress == owner, 'U.EXCHANGE: INVALID_SIGNATURE');
+        require(recoveredAddress != address(0) && recoveredAddress == owner, 'SWAPPITYSWAP: INVALID_SIGNATURE');
         _approve(owner, spender, value);
     }
 }
 
-// File: interfaces/IUExchangePair.sol
+// File: interfaces/ISwappitySwapPair.sol
 
-interface IUExchangePair {
+interface ISwappitySwapPair {
     event Approval(address indexed owner, address indexed spender, uint value);
     event Transfer(address indexed from, address indexed to, uint value);
 
@@ -260,9 +260,9 @@ interface IUExchangePair {
     function initialize(address, address) external;
 }
 
-// File: UExchangePair.sol
+// File: SwappitySwapPair.sol
 
-contract UExchangePair is IUExchangePair, UExchangeERC20 {
+contract SwappitySwapPair is ISwappitySwapPair, SwappitySwapERC20 {
     using SafeMath  for uint;
     using UQ112x112 for uint224;
 
@@ -283,7 +283,7 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
 
     uint private unlocked = 1;
     modifier lock() {
-        require(unlocked == 1, 'UExchange: LOCKED');
+        require(unlocked == 1, 'SwappitySwap: LOCKED');
         unlocked = 0;
         _;
         unlocked = 1;
@@ -297,7 +297,7 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
 
     function _safeTransfer(address token, address to, uint value) private {
         (bool success, bytes memory data) = token.call(abi.encodeWithSelector(SELECTOR, to, value));
-        require(success && (data.length == 0 || abi.decode(data, (bool))), 'UExchange: TRANSFER_FAILED');
+        require(success && (data.length == 0 || abi.decode(data, (bool))), 'SwappitySwap: TRANSFER_FAILED');
     }
 
     event Mint(address indexed sender, uint amount0, uint amount1);
@@ -318,14 +318,14 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
 
     // called once by the factory at time of deployment
     function initialize(address _token0, address _token1) external {
-        require(msg.sender == factory, 'UExchange: FORBIDDEN'); // sufficient check
+        require(msg.sender == factory, 'SwappitySwap: FORBIDDEN'); // sufficient check
         token0 = _token0;
         token1 = _token1;
     }
 
     // update reserves and, on the first call per block, price accumulators
     function _update(uint balance0, uint balance1, uint112 _reserve0, uint112 _reserve1) private {
-        require(balance0 <= uint112(-1) && balance1 <= uint112(-1), 'UExchange: OVERFLOW');
+        require(balance0 <= uint112(-1) && balance1 <= uint112(-1), 'SwappitySwap: OVERFLOW');
         uint32 blockTimestamp = uint32(block.timestamp % 2**32);
         uint32 timeElapsed = blockTimestamp - blockTimestampLast; // overflow is desired
         if (timeElapsed > 0 && _reserve0 != 0 && _reserve1 != 0) {
@@ -341,7 +341,7 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
 
     // if fee is on, mint liquidity equivalent to 1/6th of the growth in sqrt(k)
     function _mintFee(uint112 _reserve0, uint112 _reserve1) private returns (bool feeOn) {
-        address feeTo = IUExchangeFactory(factory).feeTo();
+        address feeTo = ISwappitySwapFactory(factory).feeTo();
         feeOn = feeTo != address(0);
         uint _kLast = kLast; // gas savings
         if (feeOn) {
@@ -376,7 +376,7 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
         } else {
             liquidity = Math.min(amount0.mul(_totalSupply) / _reserve0, amount1.mul(_totalSupply) / _reserve1);
         }
-        require(liquidity > 0, 'UExchange: INSUFFICIENT_LIQUIDITY_MINTED');
+        require(liquidity > 0, 'SwappitySwap: INSUFFICIENT_LIQUIDITY_MINTED');
         _mint(to, liquidity);
 
         _update(balance0, balance1, _reserve0, _reserve1);
@@ -397,7 +397,7 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
         uint _totalSupply = totalSupply; // gas savings, must be defined here since totalSupply can update in _mintFee
         amount0 = liquidity.mul(balance0) / _totalSupply; // using balances ensures pro-rata distribution
         amount1 = liquidity.mul(balance1) / _totalSupply; // using balances ensures pro-rata distribution
-        require(amount0 > 0 && amount1 > 0, 'UExchange: INSUFFICIENT_LIQUIDITY_BURNED');
+        require(amount0 > 0 && amount1 > 0, 'SwappitySwap: INSUFFICIENT_LIQUIDITY_BURNED');
         _burn(address(this), liquidity);
         _safeTransfer(_token0, to, amount0);
         _safeTransfer(_token1, to, amount1);
@@ -411,29 +411,29 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
 
     // this low-level function should be called from a contract which performs important safety checks
     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external lock {
-        require(amount0Out > 0 || amount1Out > 0, 'UExchange: INSUFFICIENT_OUTPUT_AMOUNT');
+        require(amount0Out > 0 || amount1Out > 0, 'SwappitySwap: INSUFFICIENT_OUTPUT_AMOUNT');
         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
-        require(amount0Out < _reserve0 && amount1Out < _reserve1, 'UExchange: INSUFFICIENT_LIQUIDITY');
+        require(amount0Out < _reserve0 && amount1Out < _reserve1, 'SwappitySwap: INSUFFICIENT_LIQUIDITY');
 
         uint balance0;
         uint balance1;
         { // scope for _token{0,1}, avoids stack too deep errors
         address _token0 = token0;
         address _token1 = token1;
-        require(to != _token0 && to != _token1, 'UExchange: INVALID_TO');
+        require(to != _token0 && to != _token1, 'SwappitySwap: INVALID_TO');
         if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens
         if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens
-        if (data.length > 0) IUExchangeCallee(to).uexchangeCall(msg.sender, amount0Out, amount1Out, data);
+        if (data.length > 0) ISwappitySwapCallee(to).swappityswapCall(msg.sender, amount0Out, amount1Out, data);
         balance0 = IERC20(_token0).balanceOf(address(this));
         balance1 = IERC20(_token1).balanceOf(address(this));
         }
         uint amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;
         uint amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;
-        require(amount0In > 0 || amount1In > 0, 'UExchange: INSUFFICIENT_INPUT_AMOUNT');
+        require(amount0In > 0 || amount1In > 0, 'SwappitySwap: INSUFFICIENT_INPUT_AMOUNT');
         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors
         uint balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));
         uint balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));
-        require(balance0Adjusted.mul(balance1Adjusted) >= uint(_reserve0).mul(_reserve1).mul(1000**2), 'UExchange: K');
+        require(balance0Adjusted.mul(balance1Adjusted) >= uint(_reserve0).mul(_reserve1).mul(1000**2), 'SwappitySwap: K');
         }
 
         _update(balance0, balance1, _reserve0, _reserve1);
@@ -454,9 +454,9 @@ contract UExchangePair is IUExchangePair, UExchangeERC20 {
     }
 }
 
-// File: interfaces/IUExchangeFactory.sol
+// File: interfaces/ISwappitySwapFactory.sol
 
-interface IUExchangeFactory {
+interface ISwappitySwapFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
 
     function feeTo() external view returns (address);
@@ -472,10 +472,10 @@ interface IUExchangeFactory {
     function setFeeToSetter(address) external;
 }
 
-// File: UExchangeFactory.sol
+// File: SwappitySwapFactory.sol
 
-contract UExchangeFactory is IUExchangeFactory {
-    bytes32 public constant INIT_CODE_PAIR_HASH = keccak256(abi.encodePacked(type(UExchangePair).creationCode));
+contract SwappitySwapFactory is ISwappitySwapFactory {
+    bytes32 public constant INIT_CODE_PAIR_HASH = keccak256(abi.encodePacked(type(SwappitySwapPair).creationCode));
     address public feeTo;
     address public feeToSetter;
 
@@ -493,16 +493,16 @@ contract UExchangeFactory is IUExchangeFactory {
     }
 
     function createPair(address tokenA, address tokenB) external returns (address pair) {
-        require(tokenA != tokenB, 'UExchange: IDENTICAL_ADDRESSES');
+        require(tokenA != tokenB, 'SwappitySwap: IDENTICAL_ADDRESSES');
         (address token0, address token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);
-        require(token0 != address(0), 'UExchange: ZERO_ADDRESS');
-        require(getPair[token0][token1] == address(0), 'UExchange: PAIR_EXISTS'); // single check is sufficient
-        bytes memory bytecode = type(UExchangePair).creationCode;
+        require(token0 != address(0), 'SwappitySwap: ZERO_ADDRESS');
+        require(getPair[token0][token1] == address(0), 'SwappitySwap: PAIR_EXISTS'); // single check is sufficient
+        bytes memory bytecode = type(SwappitySwapPair).creationCode;
         bytes32 salt = keccak256(abi.encodePacked(token0, token1));
         assembly {
             pair := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
-        IUExchangePair(pair).initialize(token0, token1);
+        ISwappitySwapPair(pair).initialize(token0, token1);
         getPair[token0][token1] = pair;
         getPair[token1][token0] = pair; // populate mapping in the reverse direction
         allPairs.push(pair);
@@ -510,12 +510,12 @@ contract UExchangeFactory is IUExchangeFactory {
     }
 
     function setFeeTo(address _feeTo) external {
-        require(msg.sender == feeToSetter, 'UExchange: FORBIDDEN');
+        require(msg.sender == feeToSetter, 'SwappitySwap: FORBIDDEN');
         feeTo = _feeTo;
     }
 
     function setFeeToSetter(address _feeToSetter) external {
-        require(msg.sender == feeToSetter, 'UExchange: FORBIDDEN');
+        require(msg.sender == feeToSetter, 'SwappitySwap: FORBIDDEN');
         feeToSetter = _feeToSetter;
     }
 }
