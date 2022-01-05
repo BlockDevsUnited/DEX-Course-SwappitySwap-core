@@ -1,32 +1,29 @@
-import { ChainId, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { ChainId, TokenAmount } from '@violeta.at.bww/swappityswap'
 import React, { useMemo } from 'react'
 import { X } from 'react-feather'
 import styled from 'styled-components'
-import tokenLogo from '../../assets/svg/logo.svg'
+import tokenLogo from '../../assets/images/token-logo.png'
 import { UNI } from '../../constants'
-import { UCASH } from '../../constants'
-
 import { useTotalSupply } from '../../data/TotalSupply'
 import { useActiveWeb3React } from '../../hooks'
 import { useMerkleDistributorContract } from '../../hooks/useContract'
 import useCurrentBlockTimestamp from '../../hooks/useCurrentBlockTimestamp'
-//import { useTotalUniEarned } from '../../state/stake/hooks'
-import { useTokenBalance } from '../../state/wallet/hooks'
-import { TYPE, UniTokenAnimated } from '../../theme'
+import { useTotalUniEarned } from '../../state/stake/hooks'
+import { useAggregateUniBalance, useTokenBalance } from '../../state/wallet/hooks'
+import { ExternalLink, StyledInternalLink, TYPE, UniTokenAnimated } from '../../theme'
 import { computeUniCirculation } from '../../utils/computeUniCirculation'
-//import useUSDCPrice from '../../utils/useUSDCPrice'
+import useUSDCPrice from '../../utils/useUSDCPrice'
 import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
 import { Break, CardBGImage, CardNoise, CardSection, DataCard } from '../earn/styled'
 
-const uniPrice = 0.00000001
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
 `
 
 const ModalUpper = styled(DataCard)`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  background: radial-gradient(76.02% 75.41% at 1.84% 0%, #cc9933 0%, #333 100%);
+  background: radial-gradient(76.02% 75.41% at 1.84% 0%, #ff007a 0%, #021d43 100%);
   padding: 0.5rem;
 `
 
@@ -46,14 +43,13 @@ const StyledClose = styled(X)`
 export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowUniBalanceModal: any }) {
   const { account, chainId } = useActiveWeb3React()
   const uni = chainId ? UNI[chainId] : undefined
-  const ucash = chainId ? UCASH[chainId] : undefined
 
-  //const total = useAggregateUniBalance()
-  const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, ucash)
-  //const uniToClaim: TokenAmount | undefined = useTotalUniEarned()
+  const total = useAggregateUniBalance()
+  const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
+  const uniToClaim: TokenAmount | undefined = useTotalUniEarned()
 
-  const totalSupply: TokenAmount | undefined = useTotalSupply(ucash)
-  //const uniPrice = useUSDCPrice(uni)
+  const totalSupply: TokenAmount | undefined = useTotalSupply(uni)
+  const uniPrice = useUSDCPrice(uni)
   const blockTimestamp = useCurrentBlockTimestamp()
   const unclaimedUni = useTokenBalance(useMerkleDistributorContract()?.address, uni)
   const circulation: TokenAmount | undefined = useMemo(
@@ -71,7 +67,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
         <CardNoise />
         <CardSection gap="md">
           <RowBetween>
-            <TYPE.white color="white">Your UCASH Breakdown</TYPE.white>
+            <TYPE.white color="white">Your UNI Breakdown</TYPE.white>
             <StyledClose stroke="white" onClick={() => setShowUniBalanceModal(false)} />
           </RowBetween>
         </CardSection>
@@ -82,7 +78,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
               <AutoColumn gap="md" justify="center">
                 <UniTokenAnimated width="48px" src={tokenLogo} />{' '}
                 <TYPE.white fontSize={48} fontWeight={600} color="white">
-                  {uniBalance?.toFixed(2, { groupSeparator: ',' })}
+                  {total?.toFixed(2, { groupSeparator: ',' })}
                 </TYPE.white>
               </AutoColumn>
               <AutoColumn gap="md">
@@ -90,7 +86,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
                   <TYPE.white color="white">Balance:</TYPE.white>
                   <TYPE.white color="white">{uniBalance?.toFixed(2, { groupSeparator: ',' })}</TYPE.white>
                 </RowBetween>
-                {/*<RowBetween>
+                <RowBetween>
                   <TYPE.white color="white">Unclaimed:</TYPE.white>
                   <TYPE.white color="white">
                     {uniToClaim?.toFixed(4, { groupSeparator: ',' })}{' '}
@@ -100,7 +96,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
                       </StyledInternalLink>
                     )}
                   </TYPE.white>
-                </RowBetween>*/}
+                </RowBetween>
               </AutoColumn>
             </CardSection>
             <Break />
@@ -109,20 +105,20 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
         <CardSection gap="sm">
           <AutoColumn gap="md">
             <RowBetween>
-              <TYPE.white color="white">UCASH price:</TYPE.white>
-              <TYPE.white color="white">{uniPrice?.toFixed(8) ?? '-'} BTC</TYPE.white>
+              <TYPE.white color="white">UNI price:</TYPE.white>
+              <TYPE.white color="white">${uniPrice?.toFixed(2) ?? '-'}</TYPE.white>
             </RowBetween>
             <RowBetween>
-              <TYPE.white color="white">UCASH in circulation:</TYPE.white>
+              <TYPE.white color="white">UNI in circulation:</TYPE.white>
               <TYPE.white color="white">{circulation?.toFixed(0, { groupSeparator: ',' })}</TYPE.white>
             </RowBetween>
             <RowBetween>
               <TYPE.white color="white">Total Supply</TYPE.white>
               <TYPE.white color="white">{totalSupply?.toFixed(0, { groupSeparator: ',' })}</TYPE.white>
             </RowBetween>
-            {/*{uni && uni.chainId === ChainId.MAINNET ? (
-              <ExternalLink href={`https://uniswap.info/token/${uni.address}`}>View U.EXCHANGE Analytics</ExternalLink>
-            ) : null}*/}
+            {uni && uni.chainId === ChainId.MAINNET ? (
+              <ExternalLink href={`https://uniswap.info/token/${uni.address}`}>View UNI Analytics</ExternalLink>
+            ) : null}
           </AutoColumn>
         </CardSection>
       </ModalUpper>

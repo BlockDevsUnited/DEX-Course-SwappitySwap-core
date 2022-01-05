@@ -1,4 +1,4 @@
-import { ChainId } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { ChainId } from '@violeta.at.bww/swappityswap'
 import { createStore, Store } from 'redux'
 import { addPopup, ApplicationModal, removePopup, setOpenModal, updateBlockNumber } from './actions'
 import reducer, { ApplicationState } from './reducer'

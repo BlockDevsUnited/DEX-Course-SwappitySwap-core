@@ -1,4 +1,4 @@
-import { TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { TokenAmount } from '@violeta.at.bww/swappityswap'
 import React, { useEffect } from 'react'
 import { X } from 'react-feather'
 import styled, { keyframes } from 'styled-components'

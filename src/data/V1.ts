@@ -12,7 +12,7 @@ import {
   Trade,
   TradeType,
   WETH
-} from '@violeta.at.bww/dex-course-u-exchange-sdk'
+} from '@violeta.at.bww/swappityswap'
 import { useMemo } from 'react'
 import { useActiveWeb3React } from '../hooks'
 import { useAllTokens } from '../hooks/Tokens'

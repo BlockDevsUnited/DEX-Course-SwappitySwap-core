@@ -13,7 +13,7 @@ import {
   CurrencyAmount,
   Currency,
   ETHER
-} from '@violeta.at.bww/dex-course-u-exchange-sdk'
+} from '@violeta.at.bww/swappityswap'
 import { TokenAddressMap } from '../state/lists/hooks'
 
 // returns the checksummed address if the address is valid, otherwise returns false

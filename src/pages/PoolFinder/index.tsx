@@ -1,4 +1,4 @@
-import { Currency, ETHER, JSBI, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from '@violeta.at.bww/swappityswap'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Plus } from 'react-feather'
 import { Text } from 'rebass'

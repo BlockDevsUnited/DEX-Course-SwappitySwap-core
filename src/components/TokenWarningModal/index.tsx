@@ -1,4 +1,4 @@
-import { Token } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { Token } from '@violeta.at.bww/swappityswap'
 import React, { useCallback } from 'react'
 import Modal from '../Modal'
 import { ImportToken } from 'components/SearchModal/ImportToken'

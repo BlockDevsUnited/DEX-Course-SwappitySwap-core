@@ -1,5 +1,5 @@
 import { UNI, PRELOADED_PROPOSALS } from './../../constants/index'
-import { TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { TokenAmount } from '@violeta.at.bww/swappityswap'
 import { isAddress } from 'ethers/lib/utils'
 import { useGovernanceContract, useUniContract } from '../../hooks/useContract'
 import { useSingleCallResult, useSingleContractMultipleData } from '../multicall/hooks'

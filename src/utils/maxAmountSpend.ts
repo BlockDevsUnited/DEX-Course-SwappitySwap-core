@@ -1,4 +1,4 @@
-import { CurrencyAmount, ETHER, JSBI } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { CurrencyAmount, ETHER, JSBI } from '@violeta.at.bww/swappityswap'
 import { MIN_ETH } from '../constants'
 
 /**

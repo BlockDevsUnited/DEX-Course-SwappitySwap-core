@@ -1,4 +1,4 @@
-import { ChainId } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { ChainId } from '@violeta.at.bww/swappityswap'
 import { FortmaticConnector as FortmaticConnectorCore } from '@web3-react/fortmatic-connector'
 
 export const OVERLAY_READY = 'OVERLAY_READY'

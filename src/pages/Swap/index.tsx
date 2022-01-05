@@ -1,4 +1,4 @@
-import { CurrencyAmount, JSBI, Token, Trade } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { CurrencyAmount, JSBI, Token, Trade } from '@violeta.at.bww/swappityswap'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
 import ReactGA from 'react-ga'

@@ -1,4 +1,4 @@
-import { JSBI, Token, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { JSBI, Token, TokenAmount } from '@violeta.at.bww/swappityswap'
 import { BigNumber } from 'ethers'
 import { STAKING_GENESIS } from '../state/stake/hooks'
 

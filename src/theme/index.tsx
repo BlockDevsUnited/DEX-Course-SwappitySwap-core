@@ -1,4 +1,4 @@
-import { transparentize } from 'polished'
+//import { transparentize } from 'polished'
 import React, { useMemo } from 'react'
 import styled, {
   ThemeProvider as StyledComponentsThemeProvider,
@@ -59,17 +59,17 @@ export function colors(darkMode: boolean): Colors {
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#333' : '#b88a2e',
-    primary2: darkMode ? '#3680E7' : '#cc9933',
-    primary3: darkMode ? '#4D8FEA' : '#d1a347',
-    primary4: darkMode ? '#376bad70' : '#d6ad5c',
-    primary5: darkMode ? '#153d6f70' : '#dbb870',
+    primary1: darkMode ? '#2172E5' : '#ff007a',
+    primary2: darkMode ? '#3680E7' : '#FF8CC3',
+    primary3: darkMode ? '#4D8FEA' : '#FF99C9',
+    primary4: darkMode ? '#376bad70' : '#F6DDE8',
+    primary5: darkMode ? '#153d6f70' : '#FDEAF1',
 
     // color text
-    primaryText1: darkMode ? '#6da8ff' : '#fff',
+    primaryText1: darkMode ? '#6da8ff' : '#ff007a',
 
     // secondary colors
-    secondary1: darkMode ? '#333' : '#cc9933',
+    secondary1: darkMode ? '#2172E5' : '#ff007a',
     secondary2: darkMode ? '#17000b26' : '#F6DDE8',
     secondary3: darkMode ? '#17000b26' : '#FDEAF1',
 
@@ -194,7 +194,7 @@ body {
 }
 
  a {
-   color: ${colors(false).blue1};
+   color: ${colors(false).blue1}; 
  }
 
 * {
@@ -212,7 +212,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   font-feature-settings: 'ss01' on, 'ss02' on, 'cv01' on, 'cv03' on;
-
+  
 }
 `
 
@@ -226,10 +226,6 @@ body {
   min-height: 100vh;
   background-position: 0 -30vh;
   background-repeat: no-repeat;
-  background-image: ${({ theme }) =>
-    `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(
-      1,
-      theme.bg1
-    )} 100%)`};
+  background: radial-gradient(circle, rgba(93,139,252,0.1) 0%, rgba(102,160,255,0.1) 22%, rgba(242,85,255,0.1) 44%, rgba(255,242,96,0.1) 73%, rgba(80,140,255,0.1) 100%);
 }
 `

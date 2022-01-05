@@ -1,6 +1,9 @@
-import { ChainId, TokenAmount } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { ChainId, TokenAmount } from '@violeta.at.bww/swappityswap'
 import React, { useState } from 'react'
 import { Text } from 'rebass'
+import { NavLink } from 'react-router-dom'
+import { darken } from 'polished'
+import { useTranslation } from 'react-i18next'
 
 import styled from 'styled-components'
 
@@ -11,14 +14,12 @@ import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
-import { TYPE } from '../../theme'
-import { useTranslation } from 'react-i18next'
+import { TYPE, ExternalLink } from '../../theme'
 
 import { YellowCard } from '../Card'
-import { Moon, Sun, Shuffle, Layers } from 'react-feather'
-import { darken } from 'polished'
+import { Moon, Sun } from 'react-feather'
+import Menu from '../Menu'
 
-import { NavLink } from 'react-router-dom'
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
 import ClaimModal from '../claim/ClaimModal'
@@ -29,7 +30,6 @@ import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
-import NetworkSelector from './NetworkSelector'
 
 const HeaderFrame = styled.div`
   display: grid;
@@ -41,11 +41,11 @@ const HeaderFrame = styled.div`
   width: 100%;
   top: 0;
   position: relative;
-  border-bottom: 0px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1rem;
   z-index: 2;
   ${({ theme }) => theme.mediaWidth.upToMedium`
-    display: flex;
+    grid-template-columns: 1fr;
     padding: 0 1rem;
     width: calc(100%);
     position: relative;
@@ -55,8 +55,6 @@ const HeaderFrame = styled.div`
         padding: 0.5rem 1rem;
   `}
 `
-
-const activeClassName = 'ACTIVE'
 
 const HeaderControls = styled.div`
   display: flex;
@@ -77,26 +75,7 @@ const HeaderControls = styled.div`
     width: 100%;
     z-index: 99;
     height: 72px;
-    border-radius: 0;
-    background-color: ${({ theme }) => theme.bg1};
-  `};
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    justify-self: center;
-    width: 100%;
-    max-width: 960px;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    z-index: 99;
-    height: 110px;
-    justify-content: center;
-    border-radius: 0;
+    border-radius: 12px 12px 0 0;
     background-color: ${({ theme }) => theme.bg1};
   `};
 `
@@ -104,15 +83,15 @@ const HeaderControls = styled.div`
 const HeaderElement = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+
+  /* addresses safari's lack of support for "gap" */
+  & > *:not(:first-child) {
+    margin-left: 8px;
+  }
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
    flex-direction: row-reverse;
     align-items: center;
-  `};
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding: 8px;
   `};
 `
 
@@ -123,18 +102,15 @@ const HeaderElementWrap = styled.div`
 
 const HeaderRow = styled(RowFixed)`
   ${({ theme }) => theme.mediaWidth.upToMedium`
+   width: 100%;
   `};
 `
 
 const HeaderLinks = styled(Row)`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  display: none;
+  justify-content: center;
   ${({ theme }) => theme.mediaWidth.upToMedium`
-    display: flex;
-  
+    padding: 1rem 0 1rem 1rem;
+    justify-content: flex-end;
 `};
 `
 
@@ -143,7 +119,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   flex-direction: row;
   align-items: center;
   background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg3)};
-  border-radius: 0px;
+  border-radius: 12px;
   white-space: nowrap;
   width: 100%;
   cursor: pointer;
@@ -159,7 +135,7 @@ const UNIAmount = styled(AccountElement)`
   height: 36px;
   font-weight: 500;
   background-color: ${({ theme }) => theme.bg3};
-  background: radial-gradient(174.47% 188.91% at 1.84% 0%, #cc9933 0%, #333 100%), #edeef2;
+  background: linear-gradient(153deg, rgba(194,222,255,1) 0%, rgba(118,170,255,1) 22%, rgba(244,109,255,1) 44%, rgba(224,163,100,1) 73%, rgba(139,246,243,1) 100%);
 `
 
 const UNIWrapper = styled.span`
@@ -183,7 +159,7 @@ const HideSmall = styled.span`
 `
 
 const NetworkCard = styled(YellowCard)`
-  border-radius: 0px;
+  border-radius: 12px;
   padding: 8px 12px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     margin: 0;
@@ -222,22 +198,25 @@ const UniIcon = styled.div`
   }
 `
 
+const activeClassName = 'ACTIVE'
+
 const StyledNavLink = styled(NavLink).attrs({
   activeClassName
 })`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
-  border-radius: 0rem;
+  border-radius: 3rem;
   outline: none;
   cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.text2};
   font-size: 1rem;
+  width: fit-content;
   margin: 0 12px;
   font-weight: 500;
 
   &.${activeClassName} {
-    border-radius: 0px;
+    border-radius: 12px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
   }
@@ -248,40 +227,36 @@ const StyledNavLink = styled(NavLink).attrs({
   }
 `
 
-const Spacer = styled.span`
-  width: 8px;
-`
+const StyledExternalLink = styled(ExternalLink).attrs({
+  activeClassName
+})<{ isActive?: boolean }>`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: left;
+  border-radius: 3rem;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text2};
+  font-size: 1rem;
+  width: fit-content;
+  margin: 0 12px;
+  font-weight: 500;
 
-// const StyledExternalLink = styled(ExternalLink).attrs({
-//   activeClassName
-// })<{ isActive?: boolean }>`
-//   ${({ theme }) => theme.flexRowNoWrap}
-//   align-items: left;
-//   border-radius: 0rem;
-//   outline: none;
-//   cursor: pointer;
-//   text-decoration: none;
-//   color: ${({ theme }) => theme.text2};
-//   font-size: 1rem;
-//   width: fit-content;
-//   margin: 0 12px;
-//   font-weight: 500;
-//
-//   &.${activeClassName} {
-//     border-radius: 0px;
-//     font-weight: 600;
-//     color: ${({ theme }) => theme.text1};
-//   }
-//
-//   :hover,
-//   :focus {
-//     color: ${({ theme }) => darken(0.1, theme.text1)};
-//   }
-//
-//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-//       display: none;
-// `}
-// `
+  &.${activeClassName} {
+    border-radius: 12px;
+    font-weight: 600;
+    color: ${({ theme }) => theme.text1};
+  }
+
+  :hover,
+  :focus {
+    color: ${({ theme }) => darken(0.1, theme.text1)};
+  }
+
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+      display: none;
+`}
+`
 
 export const StyledMenuButton = styled.button`
   position: relative;
@@ -295,11 +270,7 @@ export const StyledMenuButton = styled.button`
   background-color: ${({ theme }) => theme.bg3};
   margin-left: 8px;
   padding: 0.15rem 0.5rem;
-  border-radius: 0rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: ${({ theme }) => theme.text1};
+  border-radius: 0.5rem;
 
   :hover,
   :focus {
@@ -320,12 +291,15 @@ const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.RINKEBY]: 'Rinkeby',
   [ChainId.ROPSTEN]: 'Ropsten',
   [ChainId.GÖRLI]: 'Görli',
-  [ChainId.KOVAN]: 'Kovan'
+  [ChainId.KOVAN]: 'Kovan',
+  //[ChainId.BSC]: 'Binance Smart Chain',
+  [ChainId.XDAI]: 'xDAI Chain',
+
 }
 
 export default function Header() {
+  const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
-  const { account, chainId, active } = useActiveWeb3React()
 
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   // const [isDark] = useDarkModeManager()
@@ -344,7 +318,6 @@ export default function Header() {
 
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
-  const showNetworkSelector = active && typeof account === 'string'
 
   return (
     <HeaderFrame>
@@ -358,47 +331,34 @@ export default function Header() {
             <img width={'24px'} src={darkMode ? LogoDark : Logo} alt="logo" />
           </UniIcon>
         </Title>
+        <HeaderLinks>
+          <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
+            {t('swap')}
+          </StyledNavLink>
+          <StyledNavLink
+            id={`pool-nav-link`}
+            to={'/pool'}
+            isActive={(match, { pathname }) =>
+              Boolean(match) ||
+              pathname.startsWith('/add') ||
+              pathname.startsWith('/remove') ||
+              pathname.startsWith('/create') ||
+              pathname.startsWith('/find')
+            }
+          >
+            {t('pool')}
+          </StyledNavLink>
+
+
+          <StyledExternalLink id={`stake-nav-link`} href={'https://uniswap.info'}>
+            Charts <span style={{ fontSize: '11px' }}>↗</span>
+          </StyledExternalLink>
+        </HeaderLinks>
       </HeaderRow>
-      <HeaderLinks>
-        <StyledNavLink
-          id={`swap-nav-link`}
-          to={'/exchange'}
-          isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/exchange') || pathname === '/'}
-        >
-          <Shuffle size={20} />
-          <Spacer />
-          {t('Exchange')}
-        </StyledNavLink>
-        <StyledNavLink
-          id={`pool-nav-link`}
-          to={'/liquidity'}
-          isActive={(match, { pathname }) =>
-            Boolean(match) ||
-            pathname.startsWith('/add') ||
-            pathname.startsWith('/remove') ||
-            pathname.startsWith('/create') ||
-            pathname.startsWith('/find')
-          }
-        >
-          <Layers size={20} />
-          <Spacer />
-          {t('Liquidity')}
-        </StyledNavLink>
-        {/*<StyledNavLink id={`stake-nav-link`} to={'/uni'}>
-            UNI
-          </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
-            Vote
-          </StyledNavLink>
-          <StyledExternalLink id={`stake-nav-link`} href={'https://info.u.exchange'}>
-            Info <span style={{ fontSize: '11px' }}>↗</span>
-          </StyledExternalLink>*/}
-      </HeaderLinks>
       <HeaderControls>
         <HeaderElement>
-          {showNetworkSelector && <NetworkSelector />}
           <HideSmall>
-            {chainId && NETWORK_LABELS[chainId] && !showNetworkSelector && (
+            {chainId && NETWORK_LABELS[chainId] && (
               <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
             )}
           </HideSmall>
@@ -406,7 +366,7 @@ export default function Header() {
             <UNIWrapper onClick={toggleClaimModal}>
               <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
                 <TYPE.white padding="0 2px">
-                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming UNI</Dots> : 'Claim UCASH'}
+                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming UNI</Dots> : 'Claim UNI'}
                 </TYPE.white>
               </UNIAmount>
               <CardNoise />
@@ -433,7 +393,7 @@ export default function Header() {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                UCASH
+                SWAPPITY
               </UNIAmount>
               <CardNoise />
             </UNIWrapper>
@@ -451,6 +411,7 @@ export default function Header() {
           <StyledMenuButton onClick={() => toggleDarkMode()}>
             {darkMode ? <Moon size={20} /> : <Sun size={20} />}
           </StyledMenuButton>
+          <Menu />
         </HeaderElementWrap>
       </HeaderControls>
     </HeaderFrame>

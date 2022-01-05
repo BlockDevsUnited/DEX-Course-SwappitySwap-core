@@ -1,4 +1,4 @@
-import { Currency, Percent, Price } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { Currency, Percent, Price } from '@violeta.at.bww/swappityswap'
 import React, { useContext } from 'react'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'

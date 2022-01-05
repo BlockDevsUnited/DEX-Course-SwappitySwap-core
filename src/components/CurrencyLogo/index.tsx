@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { Currency, ETHER, Token } from '@violeta.at.bww/swappityswap'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 

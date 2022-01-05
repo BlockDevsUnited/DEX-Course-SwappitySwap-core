@@ -1,4 +1,4 @@
-import { CurrencyAmount, ETHER, Percent, Route, TokenAmount, Trade } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { CurrencyAmount, ETHER, Percent, Route, TokenAmount, Trade } from '@violeta.at.bww/swappityswap'
 import { DAI, USDC } from '../constants'
 import { MockV1Pair } from '../data/V1'
 import v1SwapArguments from './v1SwapArguments'

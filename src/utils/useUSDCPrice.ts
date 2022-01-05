@@ -1,4 +1,4 @@
-import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@violeta.at.bww/dex-course-u-exchange-sdk'
+import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@violeta.at.bww/swappityswap'
 import { useMemo } from 'react'
 import { USDC } from '../constants'
 import { PairState, usePairs } from '../data/Reserves'
