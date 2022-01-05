@@ -1,13 +1,4 @@
-import {
-  ChainId,
-  JSBI,
-  Pair,
-  Route,
-  Token,
-  TokenAmount,
-  Trade,
-  TradeType
-} from '@violeta.at.bww/swappityswap'
+import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@violeta.at.bww/swappityswap'
 import { computeTradePriceBreakdown } from './prices'
 
 describe('prices', () => {

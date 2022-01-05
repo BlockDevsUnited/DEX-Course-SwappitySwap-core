@@ -1,13 +1,4 @@
-import {
-  Currency,
-  CurrencyAmount,
-  ETHER,
-  JSBI,
-  Pair,
-  Percent,
-  Price,
-  TokenAmount
-} from '@violeta.at.bww/swappityswap'
+import { Currency, CurrencyAmount, ETHER, JSBI, Pair, Percent, Price, TokenAmount } from '@violeta.at.bww/swappityswap'
 import { useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { PairState, usePair } from '../../data/Reserves'

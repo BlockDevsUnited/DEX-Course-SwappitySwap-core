@@ -1,12 +1,4 @@
-import {
-  ChainId,
-  Currency,
-  CurrencyAmount,
-  ETHER,
-  Token,
-  TokenAmount,
-  WETH
-} from '@violeta.at.bww/swappityswap'
+import { ChainId, Currency, CurrencyAmount, ETHER, Token, TokenAmount, WETH } from '@violeta.at.bww/swappityswap'
 
 export function wrappedCurrency(currency: Currency | undefined, chainId: ChainId | undefined): Token | undefined {
   return chainId && currency === ETHER ? WETH[chainId] : currency instanceof Token ? currency : undefined
